@@ -11,12 +11,9 @@ on:
         required: true
         options:
           - "datadog-sandbox"
-          - "callcenter-poc-audit"
-#          - "callcenter-poc-stg"
-
 env:
   # Google Cloud Project情報を定義
-  PROJECT_MAPPING: '{ "datadog-sandbox": "217793740907", "callcenter-poc-stg": "544222381181", "callcenter-poc-audit": "247990050263" }'
+  PROJECT_MAPPING: '{ "datadog-sandbox": "217793740907" }'
   PROJECT_ID: ${{ github.event.inputs.project }}
 
 jobs:
