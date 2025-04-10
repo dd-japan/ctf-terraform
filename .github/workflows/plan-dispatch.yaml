@@ -1,0 +1,48 @@
+name: terraform plan dispatch
+run-name: terraform plan dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        type: choice
+        description: "Project to plan"
+        required: true
+        options:
+          - "datadog-sandbox"
+
+env:
+  PROJECT_MAPPING: '{ "datadog-sandbox": "217793740907" }'
+  PROJECT_ID: ${{ github.event.inputs.project }}
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Project Number
+        id: set_project_num
+        shell: bash
+        run: |
+          echo "PROJECT_NUM=${{ fromJson(env.PROJECT_MAPPING)[env.PROJECT_ID] }}" >> "$GITHUB_ENV"
+
+      # Composite action
+      - name: Setup Terraform with Aqua
+        uses: ./.github/actions/setup_terraform
+        with:
+          aqua_version: v2.43.1
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
+        working-directory: "./terraform/projects/${{ env.PROJECT_ID }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

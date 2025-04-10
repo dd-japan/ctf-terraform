@@ -1,0 +1,71 @@
+name: terraform plan
+run-name: terraform plan
+on:
+  pull_request:
+    paths:
+      - "terraform/**/*.tf"
+      - "!terraform/**/README.md"
+
+env:
+  # Google Cloud Project情報を定義
+  PROJECT_MAPPING: '{ "datadog-sandbox": "958371799887" }'
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      workdirs: ${{ steps.set_workdirs.outputs.workdirs }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          # 新しくdirを追加した場合は、ここにdirを追加する
+          filters: |
+          datadog-sandbox: terraform/projects/datadog-sandbox/**
+          workload: terraform/workload/**
+      - name: Setup working-directory
+        id: set_workdirs
+        run: |
+          echo "Run terraform plan in changed projects."
+          echo "workdirs=${{ toJson(steps.filter.outputs.changes) }}" >> "$GITHUB_OUTPUT"
+
+  terraform-plan:
+    needs: filter
+    if: ${{ needs.filter.outputs.workdirs != '[]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.filter.outputs.workdirs) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Project Number
+        id: set_project_num
+        shell: bash
+        run: |
+          echo "PROJECT_ID=${{ matrix.project }}" >> "$GITHUB_ENV"
+          echo "PROJECT_NUM=${{ fromJson(env.PROJECT_MAPPING)[matrix.project] }}" >> "$GITHUB_ENV"
+
+      # Composite action
+      - name: Setup Terraform with Aqua
+        uses: ./.github/actions/setup_terraform
+        with:
+          aqua_version: v2.43.1
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          tfcmt -var "target:${{ matrix.project }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
+        working-directory: "./terraform/projects/${{ matrix.project }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

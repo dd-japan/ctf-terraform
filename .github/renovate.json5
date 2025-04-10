@@ -1,0 +1,44 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  // 初期設定をextendsで拡張する。Preset を最初に記載し、追加設定は後から上書き
+  extends: [
+    "config:recommended", //config:base からrenameされた. ref: https://docs.renovatebot.com/presets-config/#configrecommended
+    ":label(renovate)", // renovate 関連のPRに "renovate" ラベルを付ける
+    ":semanticCommits",
+    ":timezone(Asia/Tokyo)",
+    ":enableVulnerabilityAlerts",
+    "mergeConfidence:all-badges", // PRにマージ確度バッジを表示
+    "github>aquaproj/aqua-renovate-config#2.3.1", // aquaのrenovate update（https://github.com/aquaproj/aqua-renovate-config）
+    "github>aquaproj/aqua-renovate-config:installer-script#2.2.1(scripts/.*\\.sh)", // aqua-installer を update する
+  ],
+  dependencyDashboard: true, // issuesに renovate dashboardを作成する
+  automerge: false, // PRの自動マージを無効にする
+  platformAutomerge: false,
+  assignAutomerge: false,
+  rebaseWhen: "auto",
+  prHourlyLimit: 5, // 1時間あたりのPR作成数制限 (0は無制限). config:recommended で 2 に設定されているが最初は様子を見て捌いていきたいので5に変更
+  prConcurrentLimit: 3, // 同時実行PR数制限 (0は無制限). config:recommended で 10 に設定されているが、rate limitを考慮して3に変更
+  branchConcurrentLimit: 3, // 同時実行ブランチ数制限 (0は無制限). PRは作成されなくてもブランチが作成されるため、prConcurrentLimitと同じに設定
+  prCreation: "not-pending", // 既存PRがない場合のみPRを作成
+  schedule: ["after 1am and before 9am"], // スケジュール
+
+  // major, minor, patch によってCIを通過するまでの日数を設定する(メジャーバージョン上がってすぐはバグが報告されるだろうという前提)
+  major: {
+    stabilityDays: 7,
+    addLabels: ["update-major"],
+  },
+  minor: {
+    stabilityDays: 2,
+  },
+  patch: {
+    stabilityDays: 1,
+  },
+  vulnerabilityAlerts: {
+    addLabels: ["vulnerability"],
+  },
+
+  // 除外パス設定
+  ignorePaths: [],
+
+  // terraform などaqua で管理しているものは、"github>aquaproj/aqua-renovate-config#2.3.1" で設定しているため、ここで記述する必要がない
+}

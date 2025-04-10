@@ -1,0 +1,64 @@
+name: terraform docs
+
+run-name: terraform docs
+
+on:
+  pull_request:
+    paths:
+      - "terraform/**/**.tf"
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      workdirs: ${{ steps.set_workdirs.outputs.workdirs }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            module: terraform/module/**
+            datadog-sandbox: terraform/projects/datadog-sandbox/**
+      - name: Setup working-directory
+        id: set_workdirs
+        run: |
+          echo "Run terraform plan in changed projects."
+          echo "workdirs=${{ toJson(steps.filter.outputs.changes) }}" >> "$GITHUB_OUTPUT"
+
+  terraform-docs:
+    needs: filter
+    if: ${{ needs.filter.outputs.workdirs != '[]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write # teraform-docs でのドキュメント生成に必要な権限('read'では足りない)
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.filter.outputs.workdirs) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Terraform docs
+        id: docs
+        uses: terraform-docs/gh-actions@main
+        with:
+          working-dir: ./terraform/projects/${{ matrix.project }}
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
+
+      # module内に対してもterraform-docsを実行するようにする
+      - name: Terraform docs
+        id: docs-audit
+        if: ${{ matrix.project == 'callcenter-poc-audit' }}
+        uses: terraform-docs/gh-actions@main
+        with:
+          working-dir: ./terraform/module/audit
+          output-file: README.md
+          output-method: inject
+          git-push: "true"

@@ -1,0 +1,19 @@
+name: terraform apply dev
+
+run-name: terraform apply dev
+
+on:
+  issue_comment:
+    types: [created]
+    # issue_comment の if ブロックではなぜか github.event.issue.pull_request や github.event.comment.user.login による
+    # コメントが PR 上に書き込まれたかや実行ユーザーの制限が期待通りに動作しない。Job レベルの if ブロックで制限可能な条件式を
+    # 指定しても Job が実行できてしまうので、Job レベルの if ブロックでそれぞれ制限するしかない。
+
+jobs:
+  apply-dev:
+    if: contains(github.event.comment.body, '/apply dev')
+    uses: ./.github/workflows/apply-base.yaml
+    with:
+      working_dir: ./terraform/projects/datadog-sandbox
+      project_num: "217793740907"
+      project_id: datadog-sandbox
