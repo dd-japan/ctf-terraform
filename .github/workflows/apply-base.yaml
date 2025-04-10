@@ -1,0 +1,88 @@
+name: terraform apply base
+
+run-name: terraform apply base
+
+on:
+  workflow_call:
+    inputs:
+      working_dir:
+        type: string
+        required: true
+        description: "Path to working directory to run terraform apply"
+      project_num:
+        type: string
+        required: true
+        description: "Target Google Cloud project number to run terraform apply"
+      project_id:
+        type: string
+        required: true
+        description: "Target Google Cloud project ID to run terraform apply"
+
+concurrency: # ref: https://docs.github.com/ja/actions/writing-workflows/workflow-syntax-for-github-actions#concurrency
+  # 対象の環境に対して、複数のジョブで terraform apply を実行すると挙動が不安定になるため、同じワークフロー内で特定の環境に対して同時に実行できないようにする。
+  # terraform apply の state lock の仕組みは、Job が強制停止時にロックが解除できなくなって困るので、一旦使用しない。
+  # 例：feat/hoge ブランチの apply ワークフローで 同じProject へのデプロイが同時に複数実行されるのを防ぐ。
+  group: ${{ github.ref }}-${{ github.workflow }}-${{ inputs.project_id }}
+
+jobs:
+  terraform-apply:
+    runs-on:
+      - ubuntu-latest
+    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、実行を許可するユーザーの一覧をハードコードする。
+    if: github.event.issue.pull_request != '' && contains(fromJSON('["parupappa", "AoTo0330", "yutakihara", "itot555"]'), github.event.comment.user.login)
+    permissions:
+      id-token: write
+      contents: write # PR に apply 結果をコメントするために必要な権限
+      pull-requests: write # approve されていない PR でトリガーされたワークフローをキャンセルするために必要な権限
+      actions: write # approve されていない PR でトリガーされたワークフローで gh run watch でキャンセルするまで待つために必要な権限(https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-run-annotations)
+      checks: read
+    # apply-base の GitHub Actions の設定を uses で指定して再利用する際に、
+    # defaults.run.working-directory を設定しても各ステップが working-directory で
+    # 実行されずに設定ファイルが読み込めないなどのエラーとなる。
+    # 仕方がないので、apply-base 側で動的に working-directory を設定する。
+    # https://github.com/orgs/community/discussions/25742#discussioncomment-3249014
+    defaults:
+      run:
+        working-directory: ${{ inputs.working_dir }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          clean: false
+          # PR コメントをトリガーにワークフローを実行しているため、デフォルトで PR のブランチではなく、main ブランチに checkout されてしまう。明示的に PR のブランチを checkout するようにする。
+          ref: refs/pull/${{ github.event.issue.number }}/merge
+
+      # PR にコメントを書き込むことで発生するイベントの中に PR が approve されているかの情報が含まれていないため、Job レベルの if ブロックでスキップすることができない。
+      # 良い方法が思い付かないので、GitHub の API を呼び出して PR が approve されているかを確認する。
+      # ワークフローのステップ内で必要に応じてワークフローをキャンセルするので実行時間で課金される。
+      - name: Skip non-approved PR
+        run: |
+          response=$(curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.issue.number }}/reviews" -H "Authorization: Bearer ${GITHUB_TOKEN}")
+          approved=$(echo "${response}" | jq -r '.[] | select(.state == "APPROVED")')
+          if [[ -z "${approved}" ]]; then
+            gh pr comment ${{ github.event.issue.number }} --body "PR not approved yet! Canceling the terraform apply workflow..."
+            gh run cancel ${{ github.run_id }}
+            gh run watch ${{ github.run_id }}
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Composite action
+      - name: Setup Terraform with Aqua
+        uses: ./.github/actions/setup_terraform
+        with:
+          aqua_version: v2.43.1
+          project_id: ${{ inputs.project_id }}
+          workload_identity_provider: "projects/${{ inputs.project_num }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+
+      - name: Terraform Apply
+        id: apply
+        run: |
+          tfcmt -var "target:${{ inputs.project_id }}" apply -- terraform apply -no-color -input=false -auto-approve
+        env:
+          # terraform apply の実行結果を PR のコメントに出力するために、
+          # step レベルの環境変数にコメントを書き込む対象の PR の情報を環境変数で指定する必要がある
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TFCMT_REPO_OWNER: ${{ github.event.organization.name }}
+          TFCMT_REPO_NAME: ${{ github.event.repository.name }}
+          TFCMT_PR_NUMBER: ${{ github.event.issue.number }}

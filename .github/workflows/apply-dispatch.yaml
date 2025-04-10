@@ -1,0 +1,52 @@
+name: terraform apply dispatch
+
+run-name: terraform apply dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        type: choice
+        description: "project to apply"
+        required: true
+        options:
+          - "datadog-sandbox"
+          - "callcenter-poc-audit"
+#          - "callcenter-poc-stg"
+
+env:
+  # Google Cloud Project情報を定義
+  PROJECT_MAPPING: '{ "datadog-sandbox": "217793740907", "callcenter-poc-stg": "544222381181", "callcenter-poc-audit": "247990050263" }'
+  PROJECT_ID: ${{ github.event.inputs.project }}
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Project Number
+        id: set_project_num
+        run: |
+          echo "PROJECT_NUM=${{ fromJson(env.PROJECT_MAPPING)[env.PROJECT_ID] }}" >> "$GITHUB_ENV"
+
+      # Composite action
+      - name: Setup Terraform with Aqua
+        uses: ./.github/actions/setup_terraform
+        with:
+          aqua_version: v2.43.1
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+
+      - name: Terraform Apply
+        id: apply
+        run: |
+          tfcmt -var "target:${{ env.PROJECT_ID }}" apply -- terraform apply -no-color -input=false -auto-approve
+        working-directory: "./terraform/projects/${{ env.PROJECT_ID }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
