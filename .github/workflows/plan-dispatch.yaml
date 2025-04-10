@@ -37,7 +37,8 @@ jobs:
         with:
           aqua_version: v2.43.1
           project_id: ${{ env.PROJECT_ID }}
-          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "ctf-github-actions-terraform@datadog-sandbox.iam.gserviceaccount.com"
 
       - name: Terraform Plan
         id: plan

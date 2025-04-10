@@ -19,6 +19,7 @@ runs:
       with:
         project_id: ${{ inputs.project_id }}
         workload_identity_provider: ${{ inputs.workload_identity_provider }}
+        service_account: ${{ inputs.service_account }}
 
     # Cache Aqua tools
     - name: Cache Tools
