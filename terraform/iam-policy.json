@@ -1,0 +1,3101 @@
+{
+  "auditConfigs": [
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "accessapproval.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "bigtable.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "spanner.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "healthcare.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "run.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_READ"
+        }
+      ],
+      "service": "cloudfunctions.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "automl.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "integrations.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "apigee.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "redis.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "dataplex.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudresourcemanager.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        },
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "iam.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "managedidentities.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudiot.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "ids.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "container.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "dataproc.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "networksecurity.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "sourcerepo.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "runtimeconfig.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "binaryauthorization.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "apigeeregistry.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "cloudasset.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_WRITE"
+        },
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        }
+      ],
+      "service": "compute.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "lifesciences.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "baremetalsolution.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "ml.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "dlp.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        },
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudsql.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "clouddeploy.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudtrace.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "domains.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "iap.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "bigquerymigration.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "memcache.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "apigeeconnect.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_WRITE"
+        },
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        }
+      ],
+      "service": "allServices"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "certificatemanager.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudtasks.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "pubsub.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudbilling.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "artifactregistry.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "logging.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "osconfig.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "notebooks.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "retail.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "firebasestorage.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "tpu.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudbuild.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        },
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "cloudkms.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "apigateway.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "gkemulticloud.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "composer.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        },
+        {
+          "logType": "DATA_READ"
+        },
+        {
+          "logType": "DATA_WRITE"
+        }
+      ],
+      "service": "datapipelines.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "privateca.googleapis.com"
+    },
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "storage.googleapis.com"
+    }
+  ],
+  "bindings": [
+    {
+      "members": [
+        "user:xindong.wang@datadoghq.com"
+      ],
+      "role": "organizations/114087998767/roles/datadog.billing_admin"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-cloud-sec-cloud-cus-583ebb9@datadog-staging.iam.gserviceaccount.com"
+      ],
+      "role": "organizations/114087998767/roles/datadog.cloud_custodian_security_auditor"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-alsatian-foundatio-b332833@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/CustomRole317"
+    },
+    {
+      "members": [
+        "serviceAccount:k9-service-account-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:k9-service-account-3@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/CustomRole370"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-ccm-gcp-integration@datadog-staging.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/CustomRole541"
+    },
+    {
+      "members": [
+        "serviceAccount:synthetics-lambda-gcs-access@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/CustomRole798"
+    },
+    {
+      "members": [
+        "serviceAccount:vandelay-industries@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/CustomRoleListOnlyFromGCSTest"
+    },
+    {
+      "members": [
+        "serviceAccount:serverless-integration-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/ServerlessIntegrationTestRole"
+    },
+    {
+      "members": [
+        "serviceAccount:castai-gke-846499b3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:castai-gke-eebfd231@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/castai.gkeAccess"
+    },
+    {
+      "members": [
+        "serviceAccount:chaos-cloud-dev@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/chaosCloudTestingCustomRole"
+    },
+    {
+      "members": [
+        "serviceAccount:christophe-instance-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/christopheInstanceRole"
+    },
+    {
+      "members": [
+        "serviceAccount:ae-enforcer-dev@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/datadog.ae_enforcer_dev"
+    },
+    {
+      "members": [
+        "serviceAccount:vault-gcp-secrets-backend@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/datadog.vault_secrets_backend"
+    },
+    {
+      "members": [
+        "serviceAccount:david-weiss-sandbox@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/davidWeissAssetInventory"
+    },
+    {
+      "members": [
+        "serviceAccount:wolf-etcd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-worker-general@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/disk.attach"
+    },
+    {
+      "members": [
+        "serviceAccount:teleport-helm@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/dnsUpdaterRole"
+    },
+    {
+      "members": [
+        "serviceAccount:build-gcr-push@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:image-builder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mouhamad-gke-autopilot-service@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/gcs_read_write"
+    },
+    {
+      "members": [
+        "serviceAccount:jules-denardou-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/jules_test"
+    },
+    {
+      "members": [
+        "serviceAccount:gcp-marketplace-api@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-marketplace-sandbox@datadog-marketplace-dev.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/marketplaceAccountReset"
+    },
+    {
+      "members": [
+        "serviceAccount:teleport-helm@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/storageBucketCreator"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-pubsub.iam.gserviceaccount.com",
+        "serviceAccount:synthetics-testing@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "projects/datadog-sandbox/roles/synthetics_pubsub_publisher_subscriber"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-755@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-test-007@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kaitlyn-lavan-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kisung-serviceaccount01@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:madhu-sa-action-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vickyb@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/actions.Admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-vertex-nb.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.colabServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-aiplatform-cc.iam.gserviceaccount.com",
+        "serviceAccount:steve-oakley-vertex-servic-492@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.customCodeServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-vertex-ex.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.extensionServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-aiplatform-vm.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.notebookServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-vertex-eval.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.rapidevalServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-aiplatform.iam.gserviceaccount.com",
+        "serviceAccount:steve-oakley-vertex-servic-492@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:llmobs-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.user"
+    },
+    {
+      "members": [
+        "serviceAccount:danc-service-account@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-alloydb.iam.gserviceaccount.com"
+      ],
+      "role": "roles/alloydb.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-anthosconfigmanagement.iam.gserviceaccount.com"
+      ],
+      "role": "roles/anthosconfigmanagement.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-anthospolicycontroller.iam.gserviceaccount.com"
+      ],
+      "role": "roles/anthospolicycontroller.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-servicemesh.iam.gserviceaccount.com"
+      ],
+      "role": "roles/anthosservicemesh.serviceAgent"
+    },
+    {
+      "members": [
+        "user:morsalin.billah@datadoghq.com"
+      ],
+      "role": "roles/apigee.admin"
+    },
+    {
+      "members": [
+        "user:morsalin.billah@datadoghq.com"
+      ],
+      "role": "roles/apigee.apiAdminV2"
+    },
+    {
+      "members": [
+        "user:morsalin.billah@datadoghq.com"
+      ],
+      "role": "roles/apigee.portalAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-apigee.iam.gserviceaccount.com"
+      ],
+      "role": "roles/apigee.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-gae-service.iam.gserviceaccount.com"
+      ],
+      "role": "roles/appengine.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gae-api-prod.google.com.iam.gserviceaccount.com"
+      ],
+      "role": "roles/appengineflex.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:mouhamad-gke-autopilot-service@datadog-sandbox.iam.gserviceaccount.com",
+        "user:celene@datadoghq.com",
+        "user:dan.park@datadoghq.com",
+        "user:vincent.boulineau@datadoghq.com"
+      ],
+      "role": "roles/artifactregistry.admin"
+    },
+    {
+      "members": [
+        "user:celene@datadoghq.com"
+      ],
+      "role": "roles/artifactregistry.containerRegistryMigrationAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:ddsidecar-test-2024-04-19@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dlong-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:run-otel-example-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.createOnPushWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:public-images@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.repoAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.serviceAgent"
+    },
+    {
+      "members": [
+        "user:dan.park@datadoghq.com"
+      ],
+      "role": "roles/artifactregistry.writer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudbatch.iam.gserviceaccount.com"
+      ],
+      "role": "roles/batch.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:george-sequeira-bq@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathan-lim@datadog-sandbox.iam.gserviceaccount.com",
+        "user:ashraf.hanafy@datadoghq.com"
+      ],
+      "role": "roles/bigquery.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yongcloudbatchbigquery@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigquery.jobUser"
+    },
+    {
+      "members": [
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigquery.metadataViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigquery.resourceViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:maximepyinfo@datadog-sandbox.iam.gserviceaccount.com",
+        "user:sungwook.lee@datadoghq.com"
+      ],
+      "role": "roles/bigquery.user"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-bigqueryconnection.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigqueryconnection.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigquerydatatransfer.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:gds-admin@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigtable.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:gds-486@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigtable.user"
+    },
+    {
+      "members": [
+        "serviceAccount:et-gcp-service-account@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/billing.projectManager"
+    },
+    {
+      "members": [
+        "serviceAccount:akira-sa-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:arnold-chronicle-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:caye-gcp-sandbox-2024@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-cost-management-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-kr-sandbox-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-698@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-775@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-staging-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-tml-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadoggcpsa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:david-behfarshad-des@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-gitlab-ru-cloud-inv-648f085@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddtestpubsubyue@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dolly-s-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dr-q3-2023@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ennaserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-int-preprod-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcpsamx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:google-cloud-prod-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-b-007@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joeys-service-account-678@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-reiner-sandbox-383@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:juliantest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:keisuke-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kelnerhax@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kihyun-test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kriss-dd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kristensutherland-logstee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:manneysandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:masafumi-kashiwagi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:michael-shaughnessy@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mikehollis-serviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-tf-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naokiservice@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pedro-oscorp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ref-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test-org-in-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sandbox-oscorp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sin-dd-monitoring@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-sa-impersonation-test@datadog-eventarc-dev.iam.gserviceaccount.com",
+        "serviceAccount:steve-test-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stevezou-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-int-serv-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-integration-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testactivationcsm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testusya-mashima@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wh-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yannick-guillerm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog-new-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuka-sandbox1@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/browser"
+    },
+    {
+      "members": [
+        "serviceAccount:arnold-chronicle-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:obs-pipelines@datadog-sandbox.iam.gserviceaccount.com",
+        "user:michelle.deng@datadoghq.com"
+      ],
+      "role": "roles/chronicle.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:obs-pipelines-worker-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@gcp-sa-chronicle.iam.gserviceaccount.com"
+      ],
+      "role": "roles/chronicle.serviceAgent"
+    },
+    {
+      "members": [
+        "user:michelle.deng@datadoghq.com"
+      ],
+      "role": "roles/chroniclesm.admin"
+    },
+    {
+      "members": [
+        "user:bart.karmilowicz@datadoghq.com",
+        "user:shawn.kim@datadoghq.com"
+      ],
+      "role": "roles/cloudasset.owner"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudasset.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudasset.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:aalvia-ahmed-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:abruneau-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb-665@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:al-et-dd-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-legacy-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:anske-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:api-key-99@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aron-day-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ashwin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:attapol-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:austinkou-demo-01@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:axelle-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:barbzgcpsandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:benragot-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:billcain-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:borked-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bryant-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bush-stone@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cake-andreas-schillinger-sandb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:camille-dolle@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cathaldatadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:caye-gcp-sandbox-2024@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cddb2f818cc96cfdcc495@datadog-xuxu.iam.gserviceaccount.com",
+        "serviceAccount:chrisleffler-sandbox-498@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:claire2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:clairepannolino@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-cost-management-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-ints-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloudpodaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:connormulreadygcpint@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:custom-metric-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:damani-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:daniel-callao-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-driscoll-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-kr-sandbox-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-233@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-698@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-ddev-crawler@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-775@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-prod-org2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-sandboxleo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-xuxu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-staging-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-tml-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadoggcpsa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:david-behfarshad-des@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidbehfarshad@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidj-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-app-review@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-demo-hawley@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-identity-analysis-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-kapo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:detect-pde-jvo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:deukhee-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:djm-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dolly-s-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dr-q3-2023@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:edwinluo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ennaserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:estefania-jimenez-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:et-gcp-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:exampleserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-demo-environment@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-int-preprod-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-integration-kms26-3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-ints-test-customer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-tee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcpitest@datadog-cloud-ints-staging.iam.gserviceaccount.com",
+        "serviceAccount:gcpsamx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-project@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glux-96@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:google-cloud-prod-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:grant-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gro-ddog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gumbot-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hippo-gcs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hong-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:icibaci-sa-allow-datadog-to-co@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integration-kms26-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integrationgcpts@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:irislam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:islam-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jack-burgess-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackdavenportkey@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackmonitor@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jacky-gcpintegration-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jarre-brian@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-b-007@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-test-009@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joe-hammerman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joeys-service-account-678@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-reiner-sandbox-383@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-richter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathan-deguzman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathanlimgcptest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:juliantest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kai-songnichols-nomon@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kai-songnichols@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kanishk-tripathi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:keisuke-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kelnerhax@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kenneth-foo-datadog-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kennon-sandbox-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-local-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kihyun-test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kriss-dd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kristensutherland-logstee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kyouhei-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larry-lin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larrytest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lbc-973-gcp-experiement@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mahashree-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maina-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-service-account1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-test-sa2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maneesha@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:manneysandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:marc-santos-apac-test-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:masafumi-kashiwagi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-eclair-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-test-2021-05-21@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mattsplocaltest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maximo-gke-log-collection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-test-cloud-siem@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:michael-shaughnessy@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mikehollis-serviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:min-gcp-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mirza-nurkic-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-getting-around-sanbox-qu@datadog-gcp-ints-test-b.iam.gserviceaccount.com",
+        "serviceAccount:mitch-tf-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:monitoring-in-staging@datadog-gcp-ints-test-c.iam.gserviceaccount.com",
+        "serviceAccount:morsalin-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naokiservice@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naronson-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-staging-gae@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-test-gae-tile@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-test-stage@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nina-rei@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:oskarlabteam1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:owen-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:patrick-lee-gcp-sandbox-967@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pconway-sandbox-viewer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pedro-oscorp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:peter-souter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ps-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rachel-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rahul-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ref-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ricky-staging-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rnobsam-588@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ron-test2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ronny-pena-2022-12-12-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryotaro-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test-org-in-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:samex-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:schaab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-key-rotation@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-kms26@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-sandbox-arne@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-unique-nam-332@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:shreyassandboxserviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:siv-demo-172@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sq-datadog-sbx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:srish-datadog-int-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:staging-federated-identity@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-sa-impersonation-test@datadog-eventarc-dev.iam.gserviceaccount.com",
+        "serviceAccount:steve-test-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-wenzel-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stevezou-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:su-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-int-serv-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-integration-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tess-logs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-for-ticket2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testactivationcsm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testing-ilam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testusya-mashima@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tim-molard-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-saavedra-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account-574@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vicma-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:weichiang-lim-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wh-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ww-apr-gcp-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:xinyuangcptest2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yannick-guillerm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ymatsu-labstack-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog-new-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuka-sandbox1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zkogan-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "user:collin.woo@datadoghq.com"
+      ],
+      "role": "roles/cloudasset.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887@cloudbuild.gserviceaccount.com",
+        "serviceAccount:public-images@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.builds.builder"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-adminsdk-5xve7@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:niccololeonardisandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-integration-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:worfklow-automation-staging@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudfunctions.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/cloudfunctions.developer"
+    },
+    {
+      "members": [
+        "serviceAccount:serverless-integration-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudfunctions.invoker"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcf-admin-robot.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudfunctions.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:anshum-dd-eu-prod-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jaimealonso-sandbox@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudfunctions.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:kisung-sa-tet@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudjobdiscovery.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudkms.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudkms.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudscheduler.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudscheduler.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudscheduler.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-rev-data-eng@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-usage-service-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddusage-test-svcacct@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudsql.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:min-test-postgres-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudsql.client"
+    },
+    {
+      "members": [
+        "serviceAccount:min-test-postgres-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudsql.instanceUser"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudtasks.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudtasks.serviceAgent"
+    },
+    {
+      "members": [
+        "principal://iam.googleapis.com/projects/958371799887/locations/global/workloadIdentityPools/datadog-sandbox.svc.id.goog/subject/ns/observability/sa/jaguar-demo",
+        "serviceAccount:cloud-run-events-broker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-run-events-sources@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joy-bestourous@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rpc-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudtrace.agent"
+    },
+    {
+      "members": [
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/composer.environmentAndStorageObjectAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@cloudcomposer-accounts.iam.gserviceaccount.com"
+      ],
+      "role": "roles/composer.serviceAgent"
+    },
+    {
+      "members": [
+        "group:team-computeclusterlifecycle@datadoghq.com",
+        "group:team-computecontrolplane@datadoghq.com",
+        "group:team-computedataplane@datadoghq.com",
+        "group:team-computesystems@datadoghq.com",
+        "serviceAccount:958371799887@cloudbuild.gserviceaccount.com",
+        "serviceAccount:arthur-bellal@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bosh-818@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:darylgoh@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-os-builder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jose-ibarra-sandbox-serviceacc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kisung-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:madhu-sa-action-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:phrawzty-integration-lives-424@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:terraform-cnab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "user:ansley.miller@datadoghq.com"
+      ],
+      "role": "roles/compute.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:compute-engine-service-account@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.instanceAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-os-builder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:image-cleaner-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mortar-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:niccololeonardisandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:packer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:worfklow-automation-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:workflow-actions-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "user:kento.kimura@datadoghq.com"
+      ],
+      "role": "roles/compute.instanceAdmin.v1"
+    },
+    {
+      "members": [
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.loadBalancerAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:kisung-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "user:morsalin.billah@datadoghq.com"
+      ],
+      "role": "roles/compute.networkAdmin"
+    },
+    {
+      "members": [
+        "user:morsalin.billah@datadoghq.com"
+      ],
+      "role": "roles/compute.networkUser"
+    },
+    {
+      "members": [
+        "serviceAccount:ae-region-synchronizer-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:appgate-gateway@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:appgate-gatewaylab@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.networkViewer"
+    },
+    {
+      "members": [
+        "user:anton.ippolitov@datadoghq.com"
+      ],
+      "role": "roles/compute.osLogin"
+    },
+    {
+      "members": [
+        "serviceAccount:josh-testing-iam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:marvel-workflow-connection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:niccololeonardisandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:worfklow-automation-staging@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.securityAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@compute-system.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:aalvia-ahmed-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:abruneau-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ae-resource-collector-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb-665@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:al-et-dd-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-legacy-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:anske-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:api-key-99@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aron-day-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ashwin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:attapol-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:austinkou-demo-01@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:axelle-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:barbzgcpsandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:benragot-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:billcain-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:borked-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:boston-gcp-101-session@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bryant-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bush-stone@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cake-andreas-schillinger-sandb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:camille-dolle@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cathaldatadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:caye-gcp-sandbox-2024@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cddb2f818cc96cfdcc495@datadog-xuxu.iam.gserviceaccount.com",
+        "serviceAccount:chrisleffler-sandbox-498@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:claire2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:clairepannolino@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-cost-management-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-ints-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloudpodaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:compute-viewer-josh@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:connormulreadygcpint@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:custom-metric-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:damani-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:daniel-callao-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-driscoll-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-kr-sandbox-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-233@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-698@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-ddev-crawler@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-demo-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-775@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-prod-org2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-sandboxleo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-xuxu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-monitoring@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-staging-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-tml-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadoggcpsa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:david-behfarshad-des@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidbehfarshad@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidj-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-app-review@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-arlen@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-demo-hawley@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-identity-analysis-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-kapo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-mikezvi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:denise-d-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:detect-pde-jvo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:deukhee-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:djm-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dolly-s-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dr-q3-2023@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:edwinluo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:enclave-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ennaserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:estefania-jimenez-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:et-gcp-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:exampleserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-demo-environment@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-int-preprod-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-integration-kms26-3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-ints-test-customer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-sts-test-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-tee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcpitest@datadog-cloud-ints-staging.iam.gserviceaccount.com",
+        "serviceAccount:gcpsamx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-project@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glux-96@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:google-cloud-prod-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:googlecloudintegration-aoto@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:grant-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gro-ddog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gumbot-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hippo-gcs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hong-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:icibaci-sa-allow-datadog-to-co@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:image-cleaner@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integration-kms26-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integrationgcpts@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:irislam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:islam-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jack-burgess-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackdavenportkey@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackmonitor@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jacky-gcpintegration-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jaimealonso-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jarre-brian@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-b-007@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-test-009@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joe-hammerman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joeys-service-account-678@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-reiner-sandbox-383@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-richter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathan-deguzman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathanlimgcptest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:juliantest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kai-songnichols-nomon@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kai-songnichols@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kanishk-tripathi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:keisuke-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kenneth-foo-datadog-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kennon-sandbox-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-local-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kihyun-test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kriss-dd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kristensutherland-logstee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kyouhei-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larry-lin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larrytest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lbc-973-gcp-experiement@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mahashree-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maina-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-service-account1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-test-sa2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maneesha@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:manneysandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:marc-santos-apac-test-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:masafumi-kashiwagi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-eclair-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-test-2021-05-21@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mattsplocaltest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maximo-gke-log-collection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-test-cloud-siem@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:michael-shaughnessy@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mikehollis-serviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:min-gcp-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mirza-nurkic-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-getting-around-sanbox-qu@datadog-gcp-ints-test-b.iam.gserviceaccount.com",
+        "serviceAccount:mitch-tf-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:monitoring-in-staging@datadog-gcp-ints-test-c.iam.gserviceaccount.com",
+        "serviceAccount:morsalin-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naokiservice@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naronson-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nat-eclair-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-staging-gae@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-test-gae-tile@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nati-datadog-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nilstest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nina-rei@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:oskarlabteam1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:owen-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:patrick-lee-gcp-sandbox-967@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pconway-sandbox-viewer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pedro-oscorp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:peter-souter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ps-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rachel-test-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rachel-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rahul-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rancher-2-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ref-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ricky-staging-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ron-test2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ronny-pena-2022-12-12-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryotaro-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test-org-in-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:samex-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sayumi-test1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:schaab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sdfsdfsdfsdf@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:security-logs-forwarder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-key-rotation@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-kms26@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-sandbox-arne@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-unique-nam-332@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:shreyassandboxserviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sin-dd-monitoring@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:siv-demo-172@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:spencer-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sq-datadog-sbx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:srish-datadog-int-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:staging-federated-identity@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-sa-impersonation-test@datadog-eventarc-dev.iam.gserviceaccount.com",
+        "serviceAccount:steve-test-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-wenzel-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stevezou-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:su-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-int-serv-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-integration-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tess-logs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-for-ticket2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testactivationcsm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testing-ilam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testusya-mashima@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tim-molard-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-saavedra-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account-574@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vicma-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:weichiang-lim-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wh-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-etcd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-worker-general@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ww-apr-gcp-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:xinyuangcptest2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yannick-guillerm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ymatsu-labstack-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog-new-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-dd-storage@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuka-sandbox1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zkogan-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "user:collin.woo@datadoghq.com"
+      ],
+      "role": "roles/compute.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-computescanning.iam.gserviceaccount.com"
+      ],
+      "role": "roles/computescanning.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:gcp-marketplace-api@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:saas-codelab@datadog-sandbox.iam.gserviceaccount.com",
+        "user:xindong.wang@datadoghq.com"
+      ],
+      "role": "roles/consumerprocurement.entitlementManager"
+    },
+    {
+      "members": [
+        "user:bart.karmilowicz@datadoghq.com",
+        "user:shawn.kim@datadoghq.com",
+        "user:xindong.wang@datadoghq.com"
+      ],
+      "role": "roles/consumerprocurement.entitlementViewer"
+    },
+    {
+      "members": [
+        "user:xindong.wang@datadoghq.com"
+      ],
+      "role": "roles/consumerprocurement.orderAdmin"
+    },
+    {
+      "members": [
+        "user:xindong.wang@datadoghq.com"
+      ],
+      "role": "roles/consumerprocurement.procurementAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:workflow-actions-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "user:alberto.fernandez@datadoghq.com"
+      ],
+      "role": "roles/container.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:auto-gke-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.clusterAdmin"
+    },
+    {
+      "members": [
+        "principal://iam.googleapis.com/projects/958371799887/locations/global/workloadIdentityPools/datadog-sandbox.svc.id.goog/subject/ns/paisan-namespace/sa/k-service-account",
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:xmr4o2qx13x@newrelic-gcp.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.clusterViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887@cloudbuild.gserviceaccount.com",
+        "serviceAccount:castai-gke-846499b3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:castai-gke-eebfd231@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-rev-data-eng@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sa-sncfdemo-cluster@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.developer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-gkenode.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.nodeServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@container-engine-robot.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@container-analysis.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containeranalysis.ServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:clamoriniere@datadog-sandbox.iam.gserviceaccount.com",
+        "user:haissam.kaj@datadoghq.com"
+      ],
+      "role": "roles/containeranalysis.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-marketplace-staging@system.gserviceaccount.com",
+        "serviceAccount:cloud-marketplace@system.gserviceaccount.com"
+      ],
+      "role": "roles/containeranalysis.occurrences.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:gcr-sandbox-738@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcr-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@containerregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerregistry.ServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-containerscanning.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerscanning.ServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-ktd-control.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerthreatdetection.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-755@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/databaseinsights.monitoringViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gleedataflowworker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataflow.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@dataflow-service-producer-prod.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataflow.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:camille-dolle@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gleedataflowworker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataflow.worker"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-dataform.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataform.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-datapipelines.iam.gserviceaccount.com"
+      ],
+      "role": "roles/datapipelines.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@dataproc-accounts.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataproc.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:mortar-worker@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataproc.worker"
+    },
+    {
+      "members": [
+        "serviceAccount:teleport-helm@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/datastore.owner"
+    },
+    {
+      "members": [
+        "serviceAccount:tam-calendar-export-dev@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/datastore.user"
+    },
+    {
+      "members": [
+        "serviceAccount:sles-1614-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/datastore.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:dialogflow-kshprx@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dialogflow.client"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-dialogflow.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dialogflow.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-discoveryengine.iam.gserviceaccount.com"
+      ],
+      "role": "roles/discoveryengine.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dns.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-prod-dai-core.iam.gserviceaccount.com"
+      ],
+      "role": "roles/documentaicore.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:958371799887@cloudbuild.gserviceaccount.com",
+        "serviceAccount:958371799887@cloudservices.gserviceaccount.com",
+        "serviceAccount:bbl-user@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bburatti-copilot-incident-eval@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:conor-bits-sheets2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:d4-db-826@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-sandbox@appspot.gserviceaccount.com",
+        "serviceAccount:dd-gitlab-ru-cloud-inv-648f085@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:firebase-adminsdk-g6b6v@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:flavien-service-account-tf@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:harner-terraform@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hegary-q1-2022-hackathon@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:infosys-test-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jack-burgess-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:judit-terraform@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:martin-mccloskey-gcs-detection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:owen-zhang@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:seops-542@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:seops-tam-review-app@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@containerregistry.iam.gserviceaccount.com",
+        "serviceAccount:service-account-ryuhei-kato@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:shudi-test-2024-q4@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:staging-crawl-account@datadog-gcp-ints-test-c.iam.gserviceaccount.com",
+        "serviceAccount:support@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taro-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-982@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-tf-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tpm-automation@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/editor"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/eventarc.eventReceiver"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-eventarc.iam.gserviceaccount.com"
+      ],
+      "role": "roles/eventarc.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@cloud-filer.iam.gserviceaccount.com"
+      ],
+      "role": "roles/file.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-service-account@firebase-sa-management.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@gcp-sa-firebase.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebase.managementServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-adminsdk-30mg3@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebase.sdkAdminServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-adminsdk-4sito@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebaseappcheck.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-firebasemods.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebasemods.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyao-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@firebase-rules.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebaserules.system"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-firebasestorage.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebasestorage.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-firestore.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firestore.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-firewallinsights.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firewallinsights.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:connect-register-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:management-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "user:alberto.fernandez@datadoghq.com"
+      ],
+      "role": "roles/gkehub.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:hub-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/gkehub.connect"
+    },
+    {
+      "members": [
+        "user:scott.opell@datadoghq.com"
+      ],
+      "role": "roles/gkehub.gatewayAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-gkehub.iam.gserviceaccount.com"
+      ],
+      "role": "roles/gkehub.serviceAgent"
+    },
+    {
+      "members": [
+        "user:scott.opell@datadoghq.com"
+      ],
+      "role": "roles/gkehub.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-gkemulticloud.iam.gserviceaccount.com"
+      ],
+      "role": "roles/gkemulticloud.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-gkeonprem.iam.gserviceaccount.com"
+      ],
+      "role": "roles/gkeonprem.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-healthcare.iam.gserviceaccount.com"
+      ],
+      "role": "roles/healthcare.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.roleAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:anthos-vmware-component-access@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-static-key-1675186688@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.roleViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:entitle-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.securityAdmin"
+    },
+    {
+      "members": [
+        "group:Team-gcpintegrations@datadoghq.com",
+        "serviceAccount:dd-gitlab-ru-cloud-inv-648f085@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.securityReviewer"
+    },
+    {
+      "members": [
+        "serviceAccount:anske-gke-alpha-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:enclave-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gke-ctrl-plane-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-etcd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-master@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wolf-kube-worker-general@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountActor"
+    },
+    {
+      "members": [
+        "serviceAccount:masafumikashiwagiserviceaccoun@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:anthos-vmware-component-access@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:component-access-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountCreator"
+    },
+    {
+      "members": [
+        "serviceAccount:deukhee-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:enclave-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vault-tester@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountKeyAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:day-gcploit-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-00f638d71a7e749a2c96@datadog-gci-sts-us1-prod.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-285099a1e6192fcffe19@datadog-cloud-ints-staging.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-a8dfdaec75b8b7abec19@datadog-gci-sts-us1-prod.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-a91ec8161bcf23ccfb18@datadog-cloud-ints-staging.iam.gserviceaccount.com",
+        "serviceAccount:enclave-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:firebase-adminsdk-4sito@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:k9-service-account-1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:k9-service-account-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:security-logs-forwarder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@gcp-sa-pubsub.iam.gserviceaccount.com",
+        "serviceAccount:stackdriver-logs-forwarder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stackdriver-logs-intake@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vault-tester@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zefd-oauth-test@datadog-sandbox.iam.gserviceaccount.com",
+        "user:andy.anske@datadoghq.com",
+        "user:brandon.tuttle@datadoghq.com",
+        "user:julien.doutre@datadoghq.com",
+        "user:martin.voigt@datadoghq.com"
+      ],
+      "role": "roles/iam.serviceAccountTokenCreator"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:auto-gke-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bosh-818@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:castai-gke-846499b3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:castai-gke-eebfd231@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danc-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddsidecar-test-2024-04-19@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-marketplace-api@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:martin-mccloskey-gcs-detection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:packer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rancher-2-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:run-otel-example-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "user:anton.ippolitov@datadoghq.com",
+        "user:julien.doutre@datadoghq.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    },
+    {
+      "members": [
+        "user:alejandro.nunezpriego@datadoghq.com",
+        "user:kento.kimura@datadoghq.com",
+        "user:ryan.skinner@datadoghq.com"
+      ],
+      "role": "roles/iap.tunnelResourceAccessor"
+    },
+    {
+      "members": [
+        "serviceAccount:anske-gke-alpha-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gke-ctrl-plane-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "user:sungwook.lee@datadoghq.com"
+      ],
+      "role": "roles/logging.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events@datadog-sandbox.iam.gserviceaccount.com",
+        "user:sungwook.lee@datadoghq.com"
+      ],
+      "role": "roles/logging.configWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/logging.logWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/logging.privateLogViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-logging.iam.gserviceaccount.com"
+      ],
+      "role": "roles/logging.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:dev-component-verify@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/logging.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@cloud-memcache-sa.iam.gserviceaccount.com"
+      ],
+      "role": "roles/memcache.serviceAgent"
+    },
+    {
+      "members": [
+        "user:alberto.fernandez@datadoghq.com"
+      ],
+      "role": "roles/meshconfig.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-meshcontrolplane.iam.gserviceaccount.com"
+      ],
+      "role": "roles/meshcontrolplane.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-meshdataplane.iam.gserviceaccount.com"
+      ],
+      "role": "roles/meshdataplane.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:log-mon-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/monitoring.dashboardEditor"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events-broker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-run-events-sources@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-integrations-anthos-test-s@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joy-bestourous@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-mon-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rpc-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vlad-sandbox@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/monitoring.metricWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-monitoring-notification.iam.gserviceaccount.com"
+      ],
+      "role": "roles/monitoring.notificationServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:kriss-dd@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-test-2021-05-21@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/monitoring.servicesViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:aalvia-ahmed-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:abruneau-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb-665@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aem-ddsb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:akira-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:al-et-dd-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-legacy-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:anske-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:api-key-99@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:arnold-chronicle-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:aron-day-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ashwin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:attapol-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:austinkou-demo-01@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:axelle-gcp-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:barbzgcpsandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:benragot-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:billcain-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:borked-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:boston-gcp-101-session@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bryant-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bush-stone@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cake-andreas-schillinger-sandb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:camille-dolle@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cathaldatadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:caye-gcp-sandbox-2024@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cddb2f818cc96cfdcc495@datadog-xuxu.iam.gserviceaccount.com",
+        "serviceAccount:chrisleffler-sandbox-498@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:claire2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:clairepannolino@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-cost-management-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-ints-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloudpodaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:connormulreadygcpint@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:custom-metric-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:damani-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:daniel-callao-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-driscoll-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:danny-kr-sandbox-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-233@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-698@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-ddev-crawler@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-demo-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-775@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-prod-org2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-sandboxleo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-xuxu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-monitoring@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-staging-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-tml-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadoggcpsa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:david-behfarshad-des@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidbehfarshad@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:davidj-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-app-review@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-arlen@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-demo-hawley@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-identity-analysis-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-kapo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-mikezvi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:denise-d-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:detect-pde-jvo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:deukhee-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:djm-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dolly-s-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dr-q3-2023@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:edwinluo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ennaserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:estefania-jimenez-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:et-gcp-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:exampleserviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-demo-environment@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-int-preprod-env@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-integration-kms26-3@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-ints-test-customer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-sts-test-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-tee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcpitest@datadog-cloud-ints-staging.iam.gserviceaccount.com",
+        "serviceAccount:gcpsamx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-project@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glee-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:glux-96@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:google-cloud-prod-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:googlecloudintegration-aoto@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:grant-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gro-ddog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gumbot-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hippo-gcs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hong-demo@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:icibaci-sa-allow-datadog-to-co@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integration-kms26-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:integrationgcpts@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:irislam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:islam-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jack-burgess-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackdavenportkey@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jackmonitor@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jacky-gcpintegration-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jaimealonso-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jarre-brian@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jay-b-007@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joe-hammerman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:joeys-service-account-678@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-reiner-sandbox-383@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:john-richter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathan-deguzman-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jonathanlimgcptest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:juliantest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kai-songnichols@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kanishk-tripathi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:katie-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:keisuke-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kenneth-foo-datadog-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kennon-sandbox-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-local-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-huang-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kihyun-test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kristensutherland-logstee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kyouhei-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:langer-key-json-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larry-lin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larrytest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lbc-973-gcp-experiement@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lloyd-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mahashree-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maina-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-service-account1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mandy-test-sa2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maneesha@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:manneysandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:marc-santos-apac-test-svc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:masafumi-kashiwagi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:matt-eclair-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mattsplocaltest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:maximo-gke-log-collection@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-test-cloud-siem@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:michael-shaughnessy@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mikehollis-serviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:min-gcp-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mirza-nurkic-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-getting-around-sanbox-qu@datadog-gcp-ints-test-b.iam.gserviceaccount.com",
+        "serviceAccount:mitch-tf-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:monitoring-in-staging@datadog-gcp-ints-test-c.iam.gserviceaccount.com",
+        "serviceAccount:morsalin-test-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naokiservice@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naronson-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nat-eclair-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-staging-gae@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:natasha-test-gae-tile@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nina-rei@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nk-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:oskarlabteam1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:owen-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:patrick-lee-gcp-sandbox-967@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pconway-sandbox-viewer@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pedro-oscorp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:peter-souter-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ps-dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rachel-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rahul-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ref-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ricky-staging-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ronny-pena-2022-12-12-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryotaro-serviceaccount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test-org-in-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:samex-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:schaab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:security-logs-forwarder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-key-rotation@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-kms26@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-sandbox-arne@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-account-unique-nam-332@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:shreyassandboxserviceacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sin-dd-monitoring@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:siv-demo-172@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:spencer-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sq-datadog-sbx@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:srish-datadog-int-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:staging-federated-identity@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-sa-impersonation-test@datadog-eventarc-dev.iam.gserviceaccount.com",
+        "serviceAccount:steve-test-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-wenzel-dogfood@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stevezou-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:su-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-int-serv-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-integration-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teddy-boateng212@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tess-logs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-for-ticket2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testactivationcsm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testing-ilam@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:testusya-mashima@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tim-molard-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-saavedra-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account-574@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tony-sandbox-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vicma-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:weichiang-lim-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:wh-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ww-apr-gcp-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:xinyuangcptest2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yanis-sandbox-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yannick-guillerm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ymatsu-labstack-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog-new-auth@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuka-sandbox1@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zkogan-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "user:collin.woo@datadoghq.com"
+      ],
+      "role": "roles/monitoring.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-multiclusteringress.iam.gserviceaccount.com"
+      ],
+      "role": "roles/multiclusteringress.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-mcmetering.iam.gserviceaccount.com"
+      ],
+      "role": "roles/multiclustermetering.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-networkactions.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networkactions.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-networkconnectivity.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networkconnectivity.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-networkmanagement.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networkmanagement.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-notebooks.iam.gserviceaccount.com"
+      ],
+      "role": "roles/notebooks.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:log-mon-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/opsconfigmonitoring.resourceMetadata.writer"
+    },
+    {
+      "members": [
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/orgpolicy.policyViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-osconfig.iam.gserviceaccount.com"
+      ],
+      "role": "roles/osconfig.serviceAgent"
+    },
+    {
+      "members": [
+        "group:Team-Subscriptions@datadoghq.com",
+        "group:human.devs@datadoghq.com",
+        "group:team-cakeenablement@datadoghq.com",
+        "group:team-serverlessagent@datadoghq.com",
+        "serviceAccount:chrism-hackadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:day-gcploit-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:internal-ca-deployer-2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jaime-alonso@datadog-sandbox.iam.gserviceaccount.com",
+        "deleted:serviceAccount:keisuke@datadog-sandbox.iam.gserviceaccount.com?uid=103802672556411088779",
+        "serviceAccount:kirktest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lemur-local-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-mpv-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:qiqi-94@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:raphael-hamonnais@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:seops-822@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sescheduler@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:starting-account-k8151hgg9eea@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:steve-oakley-vertex-service@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stratus-red-team-casa-sa-unzr@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:svc-vector-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-e2e@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:test-nimisha-278@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vault-tester@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yuta-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zenchatsubjectupdater@datadog-sandbox.iam.gserviceaccount.com",
+        "user:celene@datadoghq.com",
+        "user:robot-googleworkspace-saasintegrations@datadoghq.com",
+        "user:shawn.kim@datadoghq.com"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "serviceAccount:service-org-114087998767@gcp-sa-pam.iam.gserviceaccount.com"
+      ],
+      "role": "roles/privilegedaccessmanager.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-marketplace-api@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gleedataflowworker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-mvp-service-acount@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@gcp-sa-cloudasset.iam.gserviceaccount.com",
+        "user:bart.karmilowicz@datadoghq.com",
+        "user:shawn.kim@datadoghq.com"
+      ],
+      "role": "roles/pubsub.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-run-events-broker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-run-events-sources@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:demo-integrated-saas-svc-acct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:saas-codelab@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.editor"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:nurilee-logsink@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:p958371799887-532999@gcp-sa-logging.iam.gserviceaccount.com",
+        "serviceAccount:p958371799887-610019@gcp-sa-logging.iam.gserviceaccount.com",
+        "serviceAccount:p958371799887-786039@gcp-sa-logging.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-dataflow-log@datadog-agent-qa-lab.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.publisher"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddtestpubsubyue@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyaoopw@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stackdriver-logs-forwarder-924@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.subscriber"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-629c4124026674350727@datadog-gci-sts-us1-prod.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dev-component-verify@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-pubsublite.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsublite.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:islam-service-account@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/recaptchaenterprise.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sin-dd-monitoring@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/recommender.cloudAssetInsightsViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@cloud-redis.iam.gserviceaccount.com"
+      ],
+      "role": "roles/redis.serviceAgent"
+    },
+    {
+      "members": [
+        "user:daniel.cordes@datadoghq.com",
+        "user:daniel.debeer@datadoghq.com"
+      ],
+      "role": "roles/resourcemanager.organizationAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:serverless-org@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com",
+        "user:alberto.fernandez@datadoghq.com",
+        "user:gary.chiu@datadoghq.com"
+      ],
+      "role": "roles/resourcemanager.projectIamAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:ddsidecar-test-2024-04-19@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:run-otel-example-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:masafumikashiwagiserviceaccoun@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:zefd-oauth-test@datadog-sandbox.iam.gserviceaccount.com",
+        "user:siddhitha.bhoopathy@datadoghq.com"
+      ],
+      "role": "roles/run.invoker"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@serverless-robot-prod.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:jaimealonso-sandbox@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-runapps.iam.gserviceaccount.com"
+      ],
+      "role": "roles/runapps.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ],
+      "role": "roles/secretmanager.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gleedataflowworker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/secretmanager.secretAccessor"
+    },
+    {
+      "members": [
+        "serviceAccount:alberto-vara@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/secretmanager.viewer"
+    },
+    {
+      "members": [
+        "user:michelle.deng@datadoghq.com"
+      ],
+      "role": "roles/securitycenter.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:alejandro-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cspm-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-hamr-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-tee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-getting-around-sanbox-qu@datadog-gcp-ints-test-b.iam.gserviceaccount.com",
+        "serviceAccount:monitoring-in-staging@datadog-gcp-ints-test-c.iam.gserviceaccount.com",
+        "serviceAccount:ref-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sabbir-test-org-in-staging@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/securitycenter.findingsViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-identity-analysis-service@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@serverless-robot-prod.iam.gserviceaccount.com"
+      ],
+      "role": "roles/serverless.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:dd-rev-data-eng@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/servicebroker.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-dep.iam.gserviceaccount.com"
+      ],
+      "role": "roles/serviceextensions.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-commerce-procurement@system.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "user:alberto.fernandez@datadoghq.com"
+      ],
+      "role": "roles/servicemanagement.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:gcp-marketplace-api@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/servicemanagement.serviceController"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@service-networking.iam.gserviceaccount.com"
+      ],
+      "role": "roles/servicenetworking.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:cloud-commerce-procurement@system.gserviceaccount.com",
+        "serviceAccount:glee-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "user:alberto.fernandez@datadoghq.com"
+      ],
+      "role": "roles/serviceusage.serviceUsageAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:enr0xz5lor2@newrelic-gcp.iam.gserviceaccount.com",
+        "serviceAccount:logs-backend-gcp-archives@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mitch-getting-around-sanbox-qu@datadog-gcp-ints-test-b.iam.gserviceaccount.com",
+        "serviceAccount:xmr4o2qx13x@newrelic-gcp.iam.gserviceaccount.com"
+      ],
+      "role": "roles/serviceusage.serviceUsageConsumer"
+    },
+    {
+      "members": [
+        "serviceAccount:anthos-vmware-component-access@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:component-access-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:connect-register-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:management-sa@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/serviceusage.serviceUsageViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@sourcerepo-service-accounts.iam.gserviceaccount.com"
+      ],
+      "role": "roles/sourcerepo.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:jackspanner@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:jacktest@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/spanner.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:log-mon-sa-2112152323@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/stackdriver.resourceMetadata.writer"
+    },
+    {
+      "members": [
+        "serviceAccount:ae-enforcer-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ae-resource-collector-dev@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:apm-rel-env-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:at-integration-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:bosh-818@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ccamacho-sandbox-oath2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-run-events@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:config-connector-poc@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:david-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-os-builder@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddusage-test-svcacct@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dlong-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:epot-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:events-platform@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:firebase-adminsdk-7ht64@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gyao-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hmq-824@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kevin-pietsch-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:mysql-for-pcf@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin-854@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:osd-ccs-admin@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sa-sncfdemo-cluster@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:terraform-cnab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yassine-bouanani-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com",
+        "user:bob.shannon@datadoghq.com",
+        "user:george.tupi@datadoghq.com",
+        "user:vincent.boulineau@datadoghq.com"
+      ],
+      "role": "roles/storage.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:aem-graphql-gcp-bucket-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:alejandro-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ap1-test-archive-chenyu@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:arnold-chronicle-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:camille-dolle@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-dataflow-nurilee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:datadog-integration-prod-org2@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-rev-data-eng@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:default-sa-dataflow-to-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ethan-grab-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gcp-gyao@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:gleedataflowworker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:helene-dataflow-logs-helene@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hippo-gcs-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hmq-824@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kelnerhax@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kristensutherland-logstee@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kyouhei-archive@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:log-forwarder-54fb@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:logs-to-datadog-sky-teesandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:lucasc-export-to-ddog-693@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:may-cloud-siem-oct-10@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:michael-shaughnessy@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:naokiservice@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:opw-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:pierre-kepi-backup@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ryuhei-dataflow-595@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sqian-dataflow-worker@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taka2-datadog-int-serv-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:taro-child-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:teleport-helm@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-datadog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-logs-to-org3-dataflow@datadog-sandbox.iam.gserviceaccount.com",
+        "user:ethan.grab@datadoghq.com"
+      ],
+      "role": "roles/storage.objectAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:ap-prato@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:apm-rel-env-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:borked-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hmq-824@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larry-lin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:stephen-vector-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vboulineau-pulumi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-dd-storage@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectCreator"
+    },
+    {
+      "members": [
+        "serviceAccount:kevin-pietsch-test@datadog-sandbox.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectUser"
+    },
+    {
+      "members": [
+        "serviceAccount:apm-rel-env-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:artifactorydockerread@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-cost-management-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cloud-marketplace-staging@system.gserviceaccount.com",
+        "serviceAccount:cloud-marketplace@system.gserviceaccount.com",
+        "serviceAccount:danc-service-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-clair@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-subscription-reporting-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddsidecar-test-2024-04-19@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hmq-824@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:kubernetes-gcr-pull@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:larry-lin-sandbox@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:node-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:reference-tables@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:run-otel-example-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:service-958371799887@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+        "serviceAccount:vboulineau-pulumi@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:workload-identity-test@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:yong-dd-storage@datadog-sandbox.iam.gserviceaccount.com",
+        "user:tim.alexander@datadoghq.com"
+      ],
+      "role": "roles/storage.objectViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-storageinsights.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storageinsights.serviceAgent"
+    },
+    {
+      "members": [
+        "user:mitchell.zehr@datadoghq.com"
+      ],
+      "role": "roles/tpu.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@cloud-tpu.iam.gserviceaccount.com"
+      ],
+      "role": "roles/tpu.serviceAgent"
+    },
+    {
+      "members": [
+        "group:marketplace-ops@cloud.google.com",
+        "group:team-compute@datadoghq.com",
+        "serviceAccount:958371799887-compute@developer.gserviceaccount.com",
+        "serviceAccount:benny-test-account@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:cc-tester@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:crexdog@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-cloud-sec-cloud-cus-0a1af97@datadog-xuxu.iam.gserviceaccount.com",
+        "serviceAccount:dd-gitlab-ru-cloud-inv-648f085@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:dd-vault-bin-k8s-vault-af001b9@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:ddgci-57147212c92e1ad7d791@datadog-gci-sts-us1-prod.iam.gserviceaccount.com",
+        "serviceAccount:demo-compromised-entity@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:enr0xz5lor2@newrelic-gcp.iam.gserviceaccount.com",
+        "serviceAccount:entitle-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:hackathon-11-18-room@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:minyitest@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:rancher-2-sa@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sdg-intake-robot@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:splunk@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:sso-authenticator-paul@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:su-datadog-integration@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:tian-test-gcp@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:topher-dog-park-testing@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:vaultcloud-inventor-1730141562@datadog-sandbox.iam.gserviceaccount.com",
+        "serviceAccount:xmr4o2qx13x@newrelic-gcp.iam.gserviceaccount.com",
+        "user:jose.ibarra@datadoghq.com",
+        "user:jules.denardou@datadoghq.com",
+        "user:leonid.vasilyev@datadoghq.com",
+        "user:nazanin.delbarre@datadoghq.com",
+        "user:william.conti@datadoghq.com"
+      ],
+      "role": "roles/viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-workflows.iam.gserviceaccount.com"
+      ],
+      "role": "roles/workflows.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-958371799887@gcp-sa-workstations.iam.gserviceaccount.com"
+      ],
+      "role": "roles/workstations.serviceAgent"
+    }
+  ],
+  "etag": "BwYyWz7MjCk=",
+  "version": 1
+}

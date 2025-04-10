@@ -1,28 +1,8 @@
-terraform {
-  required_version = "1.11.3"
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 6.28.0"
-    }
-  }
-  backend "gcs" {
-    bucket = "ctf-terraform-tfstate"
-    prefix = "datadog-sandbox"
-  }
-}
-
-# tfstate を参照するためのプロジェクト
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
-
 # Workload Identity
 resource "google_iam_workload_identity_pool" "github_pool" {
   project                   = var.project_id
-  workload_identity_pool_id = "github-pool"
-  display_name              = "github-pool"
+  workload_identity_pool_id = "github-actions-pool"
+  display_name              = "github-actions-pool"
   description               = "for github workflows"
 }
 
@@ -69,5 +49,7 @@ resource "google_service_account_iam_member" "workload_identity_account_iam" {
 #   ])
 #   project = var.project_id
 #   role    = each.value
-#   member  = "serviceAccount:${google_service_account.ctf_github_actions_terraform.email}"
+#   # service accout のIAMバインディングを作成する
+#   # ただし、Workload Identity PoolのIAMバインディングは作成しない
+#   member  = 
 # }
