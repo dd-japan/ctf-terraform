@@ -58,7 +58,7 @@ module "vpc" {
 
   ingress_rules = [
     {
-      name          = "allow-custom-ingress-ctf-infra"
+      name          = "allow-custom-ingress-${local.common_name}"
       description   = "Allow ingress from specific IP to certain ports"
       priority      = 1000
       source_ranges = [var.allowed_ip1, var.allowed_ip2]
@@ -71,7 +71,7 @@ module "vpc" {
       target_tags = ["ctf"]
     },
     {
-      name          = "allow-custom-ingress"
+      name          = "allow-custom-ingress-${local.common_name}-all"
       description   = "Allow ingress from specific IP to certain ports"
       priority      = 1000
       source_ranges = ["10.10.0.0/16"]
@@ -83,7 +83,7 @@ module "vpc" {
       target_tags = ["ctf"]
     },
     {
-      name          = "allow-nodeport-ingress"
+      name          = "allow-nodeport-ingress-${local.common_name}"
       description   = "Allow ingress to node ports"
       priority      = 1000
       source_ranges = [var.allowed_ip1, var.allowed_ip2]
@@ -99,7 +99,7 @@ module "vpc" {
 
   egress_rules = [
     {
-      name               = "allow-all-egress-ctf-infra"
+      name               = "allow-all-egress-${local.common_name}"
       description        = "Allow all outbound traffic for ctf-infra"
       priority           = 1000
       destination_ranges = ["0.0.0.0/0"]
@@ -114,98 +114,11 @@ module "vpc" {
 }
 
 #------------------------------------------------------------------------------
-# SSH key pair
-#------------------------------------------------------------------------------
-
-resource "tls_private_key" "ctf_infra_common" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "local_file" "private_key" {
-  content         = tls_private_key.ctf_infra_common.private_key_pem
-  filename        = pathexpand("~/ctf_infra_bastion_key")
-  file_permission = "0600"
-}
-
-resource "local_file" "public_key" {
-  content         = tls_private_key.ctf_infra_common.public_key_openssh
-  filename        = pathexpand("~/ctf_infra_bastion_key.pub")
-  file_permission = "0600"
-}
-
-#------------------------------------------------------------------------------
-# Get Ubuntu 22.04 LTS image
-#------------------------------------------------------------------------------
-
-data "google_compute_image" "ubuntu" {
-  family  = "ubuntu-2204-lts"
-  project = "ubuntu-os-cloud"
-}
-
-#------------------------------------------------------------------------------
 # IAM configuration
 #------------------------------------------------------------------------------
 
 data "google_service_account" "ctf_infra" {
   account_id = var.sa_email
-}
-
-#------------------------------------------------------------------------------
-# Bastion configuration
-#------------------------------------------------------------------------------
-
-resource "google_compute_address" "bastion" {
-  name    = "${local.common_name}-bastion-ip"
-  region  = var.region
-  project = var.project_id
-}
-
-resource "google_compute_instance" "bastion" {
-  name                      = "${local.common_name}-bastion"
-  machine_type              = var.machine_type
-  zone                      = var.zone
-  project                   = var.project_id
-  allow_stopping_for_update = true
-
-  boot_disk {
-    initialize_params {
-      image = data.google_compute_image.ubuntu.self_link
-      size  = 100
-      type  = "pd-balanced"
-    }
-  }
-
-  network_interface {
-    subnetwork = module.vpc.subnets_self_links[0]
-
-    access_config {
-      nat_ip = google_compute_address.bastion.address
-    }
-  }
-
-  metadata = {
-    ssh-keys = "ubuntu:${tls_private_key.ctf_infra_common.public_key_openssh}"
-  }
-
-  labels = local.common_tags
-
-  service_account {
-    email  = data.google_service_account.ctf_infra.email
-    scopes = ["cloud-platform"]
-  }
-
-  tags = ["ctf"]
-
-  metadata_startup_script = templatefile("${path.module}/bastion.sh", {
-    COMMON_PUBLIC_KEY  = tls_private_key.ctf_infra_common.public_key_openssh
-    COMMON_PRIVATE_KEY = tls_private_key.ctf_infra_common.private_key_openssh
-    GKE_CLUSTER_NAME   = module.gke.name
-    GKE_CLUSTER_REGION = var.region
-    GCP_PROJECT_ID     = var.project_id
-  })
-
-  depends_on = [module.gke]
 }
 
 #------------------------------------------------------------------------------
@@ -260,7 +173,7 @@ module "gke" {
 }
 
 #------------------------------------------------------------------------------
-# Kubernetes resources
+# Datadog Operator
 #------------------------------------------------------------------------------
 
 resource "kubernetes_secret" "datadog_api" {
@@ -270,7 +183,7 @@ resource "kubernetes_secret" "datadog_api" {
   }
 
   data = {
-    api-key = var.dd_api_key
+    apikey = var.dd_api_key
   }
 
   type = "Opaque"
@@ -278,15 +191,13 @@ resource "kubernetes_secret" "datadog_api" {
   depends_on = [module.gke]
 }
 
-resource "helm_release" "datadog_agent" {
-  name       = "datadog-agent"
+resource "helm_release" "datadog_operator" {
+  name       = "datadog-operator"
+  chart      = "datadog-operator"
   repository = "https://helm.datadoghq.com"
-  chart      = "datadog"
   namespace  = "default"
-  values     = [file("${path.module}/datadog-values.yaml")]
 
   depends_on = [
-    module.gke,
     kubernetes_secret.datadog_api
   ]
 }

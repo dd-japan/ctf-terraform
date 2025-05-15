@@ -20,10 +20,20 @@ terraform {
       version = ">= 2.17.0"
     }
   }
-  /*
+
   backend "gcs" {
-    bucket = "xxxx"
+    bucket = "ctf-terraform-tfstate"
+    prefix = "addon"
   }
-*/
+
   required_version = "~> 1.10"
+}
+
+data "terraform_remote_state" "k8s" {
+  backend = "gcs"
+
+  config = {
+    bucket = "ctf-terraform-tfstate"
+    prefix = "base"
+  }
 }
