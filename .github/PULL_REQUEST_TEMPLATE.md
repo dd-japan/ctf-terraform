@@ -19,7 +19,7 @@
 ## 反映作業
 terraform apply を自動化するための PR コメントの形式を記載します
 
-対象のディレクトリと環境のペアを指定して `/apply <env>` の形式で PR コメントを書き込むと GitHub Actions のワークフローで terraform apply が実行されるようにする想定です。
+PR のコメント内にて、`/apply` の形式で PR コメントを書き込むと GitHub Actions のワークフローで terraform apply が実行されるようになっています。
 PR が Approve されていないとワークフローがスキップされるので注意して下さい。
 
 <details>
