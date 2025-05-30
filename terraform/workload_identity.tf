@@ -26,16 +26,20 @@ resource "google_iam_workload_identity_pool_provider" "github_provider" {
   }
 }
 
-resource "google_service_account" "ctf_github_actions_terraform" {
-  project      = var.project_id
-  account_id   = "ctf-github-actions-terraform"
-  display_name = "ctf-github-actions-terraform"
-  description  = "GitHub Actions for Terraform to CTF Japan"
+# resource "google_service_account" "ctf_github_actions_terraform" {
+#   project      = var.project_id
+#   account_id   = "ctf-github-actions-terraform"
+#   display_name = "ctf-github-actions-terraform"
+#   description  = "GitHub Actions for Terraform to CTF Japan"
+# }
+
+data "google_service_account" "terraform_sa" {
+  account_id = "yuta-sa"
 }
 
 # Workload Identityによる認証を許可するIAMバインディング設定
 resource "google_service_account_iam_member" "workload_identity_account_iam" {
-  service_account_id = google_service_account.ctf_github_actions_terraform.name
+  service_account_id = data.google_service_account.terraform_sa.name
   role               = "roles/iam.workloadIdentityUser"
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_org}/${var.repo_name}"
 }
