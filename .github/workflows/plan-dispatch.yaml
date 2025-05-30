@@ -25,20 +25,42 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set Project Number
-        id: set_project_num
-        shell: bash
-        run: |
-          echo "PROJECT_NUM=${{ fromJson(env.PROJECT_MAPPING)[env.PROJECT_ID] }}" >> "$GITHUB_ENV"
-
-      # Composite action
-      - name: Setup Terraform with Aqua
-        uses: ./.github/actions/setup_terraform
+      - name: auth-google
+        uses: google-github-actions/auth@v2
         with:
-          aqua_version: v2.43.1
           project_id: ${{ env.PROJECT_ID }}
-          workload_identity_provider: "projects/958371799887/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
-          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
+
+      # Cache Aqua tools
+      - name: Cache Tools
+        id: cache-tools
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: cache-tools-${{ hashFiles('aqua.yaml') }}
+
+      # aqua.yamlから取得したパッケージをインストール
+      - name: Setup Aqua
+        uses: aquaproj/aqua-installer@v3.1.2
+        with:
+          aqua_version: ${{ inputs.aqua_version }}
+          aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
+
+      - name: Terraform fmt
+        id: fmt
+        shell: bash
+        run: terraform fmt -recursive -check -diff
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        shell: bash
+        run: terraform init
+        working-directory: ./terraform/projects/${
+
+      - name: Terraform Validate
+        id: validate
+        shell: bash
+        run: terraform validate -no-color
 
       - name: Terraform Plan
         id: plan
