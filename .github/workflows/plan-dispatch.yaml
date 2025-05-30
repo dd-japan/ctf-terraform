@@ -60,7 +60,7 @@ jobs:
         id: init
         shell: bash
         run: terraform init
-        working-directory: ./terraform/projects/${
+        working-directory: ./terraform
 
       - name: Terraform Validate
         id: validate
@@ -71,6 +71,6 @@ jobs:
         id: plan
         run: |
           tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
-        working-directory: "./terraform/projects/${{ env.PROJECT_ID }}"
+        working-directory: "./terraform"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
