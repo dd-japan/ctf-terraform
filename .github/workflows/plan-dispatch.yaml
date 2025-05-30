@@ -29,6 +29,8 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/958371799887/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
       # Cache Aqua tools
       - name: Cache Tools
@@ -42,7 +44,7 @@ jobs:
       - name: Setup Aqua
         uses: aquaproj/aqua-installer@v3.1.2
         with:
-          aqua_version: ${{ inputs.aqua_version }}
+          aqua_version: v2.43.1
           aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
 
       - name: Terraform fmt
