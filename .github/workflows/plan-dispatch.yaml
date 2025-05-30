@@ -11,7 +11,7 @@ on:
           - "datadog-sandbox"
 
 env:
-  PROJECT_MAPPING: '{ "datadog-sandbox": "217793740907" }'
+  PROJECT_MAPPING: '{ "datadog-sandbox": "958371799887" }'
   PROJECT_ID: ${{ github.event.inputs.project }}
 
 jobs:
@@ -37,8 +37,8 @@ jobs:
         with:
           aqua_version: v2.43.1
           project_id: ${{ env.PROJECT_ID }}
-          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
-          service_account: "ctf-github-actions-terraform@datadog-sandbox.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/958371799887/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
       - name: Terraform Plan
         id: plan
