@@ -33,7 +33,7 @@ jobs:
 
       - name: Upload Git Metadata with tags
         run: |
-          datadog-ci tag --level pipeline --tags team:ctf-pfe env:ctf
+          datadog-ci tag --level pipeline --tags team:ctf-pfe
 
 
       - name: auth-google
