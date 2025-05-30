@@ -7,65 +7,66 @@ on:
       - "!terraform/**/README.md"
 
 env:
-  # Google Cloud Project情報を定義
   PROJECT_MAPPING: '{ "datadog-sandbox": "958371799887" }'
+  PROJECT_ID: ${{ github.event.inputs.project }}
 
 jobs:
-  filter:
-    runs-on: ubuntu-latest
-    outputs:
-      workdirs: ${{ steps.set_workdirs.outputs.workdirs }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          # 新しくdirを追加した場合は、ここにdirを追加する
-          filters: |
-          datadog-sandbox: terraform/projects/datadog-sandbox/**
-          workload: terraform/workload/**
-      - name: Setup working-directory
-        id: set_workdirs
-        run: |
-          echo "Run terraform plan in changed projects."
-          echo "workdirs=${{ toJson(steps.filter.outputs.changes) }}" >> "$GITHUB_OUTPUT"
-
   terraform-plan:
-    needs: filter
-    if: ${{ needs.filter.outputs.workdirs != '[]' }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
       pull-requests: write
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJSON(needs.filter.outputs.workdirs) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set Project Number
-        id: set_project_num
-        shell: bash
-        run: |
-          echo "PROJECT_ID=${{ matrix.project }}" >> "$GITHUB_ENV"
-          echo "PROJECT_NUM=${{ fromJson(env.PROJECT_MAPPING)[matrix.project] }}" >> "$GITHUB_ENV"
+      - name: auth-google
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/958371799887/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
-      # Composite action
-      - name: Setup Terraform with Aqua
-        uses: ./.github/actions/setup_terraform
+      # Cache Aqua tools
+      - name: Cache Tools
+        id: cache-tools
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: cache-tools-${{ hashFiles('aqua.yaml') }}
+
+      # aqua.yamlから取得したパッケージをインストール
+      - name: Setup Aqua
+        uses: aquaproj/aqua-installer@v3.1.2
         with:
           aqua_version: v2.43.1
-          project_id: ${{ env.PROJECT_ID }}
-          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
+        env:
+          AQUA_DISABLE_COSIGN: "true"
+          AQUA_DISABLE_SLSA: "true"
+
+      - name: Terraform fmt
+        id: fmt
+        shell: bash
+        run: terraform fmt -recursive -check -diff
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        shell: bash
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Terraform Validate
+        id: validate
+        shell: bash
+        run: terraform validate -no-color
 
       - name: Terraform Plan
         id: plan
         run: |
-          tfcmt -var "target:${{ matrix.project }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
-        working-directory: "./terraform/projects/${{ matrix.project }}"
+          tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
+        working-directory: "./terraform"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

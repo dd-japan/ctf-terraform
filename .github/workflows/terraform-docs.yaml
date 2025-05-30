@@ -5,7 +5,7 @@ run-name: terraform docs
 on:
   pull_request:
     paths:
-      - "terraform/**/**.tf"
+      - "terraform/**.tf"
 
 jobs:
   filter:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: write # teraform-docs でのドキュメント生成に必要な権限('read'では足りない)
+      contents: write # terraform-docs でのドキュメント生成に必要な権限('read'では足りない)
       pull-requests: write
     strategy:
       fail-fast: false
