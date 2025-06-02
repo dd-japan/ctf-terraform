@@ -21,3 +21,4 @@ jobs:
     uses: ./.github/workflows/apply-base.yaml
     with:
       working_dir: ./terraform
+      project_id: datadog-sandbox
