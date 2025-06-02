@@ -49,21 +49,6 @@ jobs:
           # PR コメントをトリガーにワークフローを実行しているため、デフォルトで PR のブランチではなく、main ブランチに checkout されてしまう。明示的に PR のブランチを checkout するようにする。
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      # PR にコメントを書き込むことで発生するイベントの中に PR が approve されているかの情報が含まれていないため、Job レベルの if ブロックでスキップすることができない。
-      # 良い方法が思い付かないので、GitHub の API を呼び出して PR が approve されているかを確認する。
-      # ワークフローのステップ内で必要に応じてワークフローをキャンセルするので実行時間で課金される。
-      # - name: Skip non-approved PR
-      #   run: |
-      #     response=$(curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.issue.number }}/reviews" -H "Authorization: Bearer ${GITHUB_TOKEN}")
-      #     approved=$(echo "${response}" | jq -r '.[] | select(.state == "APPROVED")')
-      #     if [[ -z "${approved}" ]]; then
-      #       gh pr comment ${{ github.event.issue.number }} --body "PR not approved yet! Canceling the terraform apply workflow..."
-      #       gh run cancel ${{ github.run_id }}
-      #       gh run watch ${{ github.run_id }}
-      #     fi
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: auth-google
         uses: google-github-actions/auth@v2
         with:
