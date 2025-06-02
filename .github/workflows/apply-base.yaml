@@ -9,14 +9,6 @@ on:
         type: string
         required: true
         description: "Path to working directory to run terraform apply"
-      project_num:
-        type: string
-        required: true
-        description: "Target Google Cloud project number to run terraform apply"
-      project_id:
-        type: string
-        required: true
-        description: "Target Google Cloud project ID to run terraform apply"
 
 env:
   PROJECT_ID: "datadog-sandbox"
