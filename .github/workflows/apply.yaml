@@ -14,6 +14,7 @@ permissions:
   pull-requests: write
   actions: write
   checks: read
+  issues: write
 
 jobs:
   apply:

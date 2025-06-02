@@ -19,6 +19,7 @@ permissions:
   id-token: write
   actions: write
   checks: read
+  issues: write # PR に Label を付けるために必要
 
 env:
   PROJECT_ID: "datadog-sandbox"
