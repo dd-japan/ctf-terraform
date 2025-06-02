@@ -27,3 +27,6 @@ terraform.tfstate.*.backup
 
 # Ignored vscode files
 .vscode/
+
+# Cursor
+.cursor/
