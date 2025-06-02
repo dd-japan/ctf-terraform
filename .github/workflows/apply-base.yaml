@@ -32,8 +32,8 @@ jobs:
   terraform-apply:
     runs-on:
       - ubuntu-latest
-    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、dd-japan team に所属しているメンバーであれば実行を許可する
-    if: github.event.issue.pull_request != '' && contains(fromJSON('["dd-japan"]'), github.event.comment.user.teams)
+    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、実行を許可するユーザーの一覧をハードコードする。
+    if: github.event.issue.pull_request != '' && contains(fromJSON('["parupappa", "AoTo0330", "yutakihara", "itot555"]'), github.event.comment.user.login)
     permissions:
       id-token: write
       contents: write # PR に apply 結果をコメントするために必要な権限
@@ -59,17 +59,17 @@ jobs:
       # PR にコメントを書き込むことで発生するイベントの中に PR が approve されているかの情報が含まれていないため、Job レベルの if ブロックでスキップすることができない。
       # 良い方法が思い付かないので、GitHub の API を呼び出して PR が approve されているかを確認する。
       # ワークフローのステップ内で必要に応じてワークフローをキャンセルするので実行時間で課金される。
-      - name: Skip non-approved PR
-        run: |
-          response=$(curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.issue.number }}/reviews" -H "Authorization: Bearer ${GITHUB_TOKEN}")
-          approved=$(echo "${response}" | jq -r '.[] | select(.state == "APPROVED")')
-          if [[ -z "${approved}" ]]; then
-            gh pr comment ${{ github.event.issue.number }} --body "PR not approved yet! Canceling the terraform apply workflow..."
-            gh run cancel ${{ github.run_id }}
-            gh run watch ${{ github.run_id }}
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Skip non-approved PR
+      #   run: |
+      #     response=$(curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.issue.number }}/reviews" -H "Authorization: Bearer ${GITHUB_TOKEN}")
+      #     approved=$(echo "${response}" | jq -r '.[] | select(.state == "APPROVED")')
+      #     if [[ -z "${approved}" ]]; then
+      #       gh pr comment ${{ github.event.issue.number }} --body "PR not approved yet! Canceling the terraform apply workflow..."
+      #       gh run cancel ${{ github.run_id }}
+      #       gh run watch ${{ github.run_id }}
+      #     fi
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: auth-google
         uses: google-github-actions/auth@v2
