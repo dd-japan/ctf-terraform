@@ -1,6 +1,5 @@
-name: terraform apply dev
-
-run-name: terraform apply dev
+name: terraform apply
+run-name: terraform apply
 
 on:
   issue_comment:
@@ -10,10 +9,10 @@ on:
     # 指定しても Job が実行できてしまうので、Job レベルの if ブロックでそれぞれ制限するしかない。
 
 jobs:
-  apply-dev:
-    if: contains(github.event.comment.body, '/apply dev')
+  apply:
+    if: contains(github.event.comment.body, '/apply')
     uses: ./.github/workflows/apply-base.yaml
     with:
-      working_dir: ./terraform/projects/datadog-sandbox
-      project_num: "217793740907"
+      working_dir: ./terraform
       project_id: datadog-sandbox
+      project_num: "958371799887"
