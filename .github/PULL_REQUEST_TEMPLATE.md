@@ -22,13 +22,4 @@ terraform apply を自動化するための PR コメントの形式を記載し
 PR のコメント内にて、`/apply` の形式で PR コメントを書き込むと GitHub Actions のワークフローで terraform apply が実行されるようになっています。
 PR が Approve されていないとワークフローがスキップされるので注意して下さい。
 
-<details>
-<summary>サポートしているコマンド</summary>
-<pre>
-<code>
-/apply dev
-</code>
-</pre>
-</details>
-
-PR の概要に上記のコマンドを書き込んでも GitHub Actions のワークフローは実行されないので、PR の概要から上記のコマンドの記載を削除する必要はありません。
+※ PR の概要に上記のコマンドを書き込んでも GitHub Actions のワークフローは実行されないので、PR の概要から上記のコマンドの記載を削除する必要はありません。

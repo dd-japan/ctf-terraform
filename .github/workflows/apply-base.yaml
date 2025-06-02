@@ -18,6 +18,10 @@ on:
         required: true
         description: "Target Google Cloud project ID to run terraform apply"
 
+env:
+  PROJECT_ID: "datadog-sandbox"
+  PROJECT_NUM: "958371799887"
+
 concurrency: # ref: https://docs.github.com/ja/actions/writing-workflows/workflow-syntax-for-github-actions#concurrency
   # 対象の環境に対して、複数のジョブで terraform apply を実行すると挙動が不安定になるため、同じワークフロー内で特定の環境に対して同時に実行できないようにする。
   # terraform apply の state lock の仕組みは、Job が強制停止時にロックが解除できなくなって困るので、一旦使用しない。
@@ -28,8 +32,8 @@ jobs:
   terraform-apply:
     runs-on:
       - ubuntu-latest
-    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、実行を許可するユーザーの一覧をハードコードする。
-    if: github.event.issue.pull_request != '' && contains(fromJSON('["parupappa", "AoTo0330", "yutakihara", "itot555"]'), github.event.comment.user.login)
+    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、dd-japan team に所属しているメンバーであれば実行を許可する
+    if: github.event.issue.pull_request != '' && contains(fromJSON('["dd-japan"]'), github.event.comment.user.teams)
     permissions:
       id-token: write
       contents: write # PR に apply 結果をコメントするために必要な権限
@@ -67,18 +71,50 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Composite action
-      - name: Setup Terraform with Aqua
-        uses: ./.github/actions/setup_terraform
+      - name: auth-google
+        uses: google-github-actions/auth@v2
         with:
-          aqua_version: v2.43.1
-          project_id: ${{ inputs.project_id }}
-          workload_identity_provider: "projects/${{ inputs.project_num }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
+
+      # Cache Aqua tools
+      - name: Cache Tools
+        id: cache-tools
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: cache-tools-${{ hashFiles('aqua.yaml') }}
+
+      # aqua.yamlから取得したパッケージをインストール
+      - name: Setup Aqua
+        uses: aquaproj/aqua-installer@v4.0.0
+        with:
+          aqua_version: v2.51.2
+          aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
+
+      - name: Terraform fmt
+        id: fmt
+        shell: bash
+        run: terraform fmt -recursive -check -diff
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        shell: bash
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Terraform Validate
+        id: validate
+        shell: bash
+        run: terraform validate -no-color
 
       - name: Terraform Apply
         id: apply
         run: |
-          tfcmt -var "target:${{ inputs.project_id }}" apply -- terraform apply -no-color -input=false -auto-approve
+          tfcmt -var "target:${{ env.PROJECT_ID }}" apply -- terraform apply -no-color -input=false -auto-approve
+
         env:
           # terraform apply の実行結果を PR のコメントに出力するために、
           # step レベルの環境変数にコメントを書き込む対象の PR の情報を環境変数で指定する必要がある
