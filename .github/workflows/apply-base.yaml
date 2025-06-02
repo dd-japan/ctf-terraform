@@ -32,6 +32,8 @@ jobs:
   terraform-apply:
     runs-on:
       - ubuntu-latest
+    # Job レベルの if ブロックでグローバルに定義した env を参照することができないため、実行を許可するユーザーの一覧をハードコードする。
+    if: github.event.issue.pull_request != '' && contains(fromJSON('["parupappa", "AoTo0330", "yutakihara", "itot555"]'), github.event.comment.user.login)
     permissions:
       id-token: write
       contents: write # PR に apply 結果をコメントするために必要な権限
