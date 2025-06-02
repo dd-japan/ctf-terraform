@@ -1,4 +1,4 @@
-name: terraform-docs
+name: terraform docs
 run-name: terraform docs generation
 
 on:

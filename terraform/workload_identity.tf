@@ -26,14 +26,8 @@ resource "google_iam_workload_identity_pool_provider" "github_provider" {
   }
 }
 
-# resource "google_service_account" "ctf_github_actions_terraform" {
-#   project      = var.project_id
-#   account_id   = "ctf-github-actions-terraform"
-#   display_name = "ctf-github-actions-terraform"
-#   description  = "GitHub Actions for Terraform to CTF Japan"
-# }
-
 data "google_service_account" "terraform_sa" {
+  # "yuta-sa" は Owner 権限を持つ Service Account であるため、Workload Identity による認証を許可する
   account_id = "yuta-sa"
 }
 
@@ -43,17 +37,3 @@ resource "google_service_account_iam_member" "workload_identity_account_iam" {
   role               = "roles/iam.workloadIdentityUser"
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_org}/${var.repo_name}"
 }
-
-# Workload Identity プリンシパルに対するアクセス権限を付与（Resource の作成・更新・削除）
-# resource "google_project_iam_member" "the_principal" {
-#   for_each = toset([
-#     "roles/editor",
-#     "roles/resourcemanager.projectIamAdmin", # Project IAM Admin 
-#     "roles/logging.configWriter",            # Logs Configuration Writer
-#   ])
-#   project = var.project_id
-#   role    = each.value
-#   # service accout のIAMバインディングを作成する
-#   # ただし、Workload Identity PoolのIAMバインディングは作成しない
-#   member  = 
-# }

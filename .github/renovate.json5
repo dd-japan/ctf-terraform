@@ -40,5 +40,5 @@
   // 除外パス設定
   ignorePaths: [],
 
-  // terraform などaqua で管理しているものは、"github>aquaproj/aqua-renovate-config#2.3.1" で設定しているため、ここで記述する必要がない
+  // terraform など aqua で管理しているものは、"github>aquaproj/aqua-renovate-config#2.51.2" で設定しているため、ここで記述する必要がない
 }
