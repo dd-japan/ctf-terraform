@@ -23,7 +23,7 @@ jobs:
         with:
           scan-type: "config"
           severity: "HIGH,CRITICAL"
-          scan-ref: "." # デフォルトのスキャン対象はカレントディレクトリ.TODO:変更のあったファイルのみを対象にする
+          scan-ref: "." # デフォルトのスキャン対象はカレントディレクトリ
           output: trivy-scan-result.txt
 
       - name: Format Trivy Scan Result

@@ -13,9 +13,9 @@ jobs:
 
       # 本当はactionlintだけ install するようにしたいが、公式でもこうなっているのでそのまま使用する
       # https://github.com/aquaproj/aqua-installer/blob/db3c0abbdc199552ca2ace1cf63b95ceeee1d0dd/.github/workflows/actionlint.yaml#L19
-      - uses: aquaproj/aqua-installer@v3.1.2
+      - uses: aquaproj/aqua-installer@v4.0.0
         with:
-          aqua_version: v2.43.1
+          aqua_version: v2.51.2
 
       # Actionlint
       - name: Check workflow files
