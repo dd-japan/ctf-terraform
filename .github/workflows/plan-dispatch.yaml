@@ -1,3 +1,6 @@
+###########################################################
+# terraform plan を手動でトリガーするためのワークフロー
+###########################################################
 name: terraform plan dispatch
 run-name: terraform plan dispatch
 on:
@@ -9,6 +12,13 @@ on:
         required: true
         options:
           - "datadog-sandbox"
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+  actions: write
+  checks: read
 
 env:
   PROJECT_ID: "datadog-sandbox"
