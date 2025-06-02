@@ -1,0 +1,39 @@
+# Cursor
+.cursor/
+
+# GitHub Actions
+.github/workflows/*.yaml.bak
+.github/workflows/*.yaml.tmp
+.github/workflows/*.yaml.old
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Terraform
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfstate.lock.info
+terraform/terraform.tfstate.*.backup
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/crash.log
+terraform/crash.*.log
+terraform/*.tfvars
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/*_override.tf.json
+terraform/.terraformrc
+terraform/terraform.rc
+terraform/*.pem
+terraform/*.crt
+terraform/*.key
+terraform/*.bak
+terraform/*gitignore*.tf
+terraform/.vagrant/
