@@ -23,32 +23,24 @@
   - スキャン結果をPRにコメント
   - 重大な脆弱性が検出された場合はワークフローを失敗させる
 
-### Terraform Plan
-- **ファイル**: `.github/workflows/plan.yaml`
-- **トリガー**: PRの作成時
+### Terraform Plan/Apply
+- **ファイル**: 
+  - Plan: `.github/workflows/plan.yaml`
+  - Apply: `.github/workflows/apply-base.yaml`, `.github/workflows/apply.yaml`
+- **トリガー**: 
+  - Plan: PRの作成時
+  - Apply: PRに対して `/apply` をコメント時
 - **実行内容**:
   - Google Cloud Platformへの認証
   - aquaproj/aqua-installerを使用して必要なツールをインストール
   - Terraformの初期化とフォーマットチェック
   - Terraformの構文チェック
-  - Terraformのplan実行
+  - Terraformのplan/apply実行
   - tfcmtを使用して実行結果をPRにコメント
-  - 変更内容に応じて以下のラベルを付与:
+  - Plan実行時は変更内容に応じて以下のラベルを付与:
     - `add-or-update`: リソースの追加・更新時
     - `destroy`: リソースの削除時
     - `no-changes`: 変更なし
-  - エラー発生時は詳細なエラーメッセージを表示
-
-### Terraform Apply
-- **ファイル**: `.github/workflows/apply-base.yaml`,`.github/workflows/apply.yaml`
-- **トリガー**: PRに対して、 `/apply` をコメント時
-- **実行内容**:
-  - Google Cloud Platformへの認証
-  - aquaproj/aqua-installerを使用して必要なツールをインストール
-  - Terraformの初期化
-  - Terraformの構文チェック
-  - Terraformのapply実行
-  - tfcmtを使用して実行結果をPRにコメント
   - エラー発生時は詳細なエラーメッセージと対処方法を表示
 
 ### Renovate
