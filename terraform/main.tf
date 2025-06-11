@@ -75,8 +75,8 @@ module "vpc" {
       target_tags = ["ctf"]
     },
     {
-      name          = "allow-custom-ingress-${local.common_name}"
-      description   = "Allow ingress from specific IP to certain ports"
+      name          = "allow-custom-ingress-same-vpc-${local.common_name}"
+      description   = "Allow ingress from same VPC"
       priority      = 1000
       source_ranges = ["10.10.0.0/16"]
       allow = [
