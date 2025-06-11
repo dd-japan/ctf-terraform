@@ -100,3 +100,6 @@ jobs:
           TFCMT_REPO_OWNER: ${{ github.event.organization.name }}
           TFCMT_REPO_NAME: ${{ github.event.repository.name }}
           TFCMT_PR_NUMBER: ${{ github.event.issue.number }}
+          # Terraform 変数として GitHub Secrets から値を設定
+          TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }}
