@@ -45,8 +45,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allowed_ip1"></a> [allowed\_ip1](#input\_allowed\_ip1) | Allowed CIDR. This is the IP address of your office or home. | `string` | n/a | yes |
-| <a name="input_allowed_ip2"></a> [allowed\_ip2](#input\_allowed\_ip2) | Allowed CIDR. This is the IP address of your office or home. | `string` | n/a | yes |
+| <a name="input_allowed_ips"></a> [allowed\_ips](#input\_allowed\_ips) | Allowed CIDR. This is the IP address of your office or home. | `list(string)` | n/a | yes |
 | <a name="input_dd_api_key"></a> [dd\_api\_key](#input\_dd\_api\_key) | Datadog API Key | `string` | n/a | yes |
 | <a name="input_enabled_services"></a> [enabled\_services](#input\_enabled\_services) | n/a | <pre>map(list(object({<br/>    log_type         = string<br/>    exempted_members = optional(list(string))<br/>  })))</pre> | <pre>{<br/>  "storage.googleapis.com": [<br/>    {<br/>      "log_type": "DATA_READ"<br/>    },<br/>    {<br/>      "log_type": "DATA_WRITE"<br/>    },<br/>    {<br/>      "log_type": "ADMIN_READ"<br/>    }<br/>  ]<br/>}</pre> | no |
 | <a name="input_env"></a> [env](#input\_env) | 環境に関するvariable | `string` | `"dev"` | no |
