@@ -67,9 +67,7 @@ locals {
     location                = "tokyo"
     please_keep_my_resource = true
   }
-  project_name = "ctf"
-  unique_id    = random_pet.primary.id
-  common_name  = "${local.project_name}-${local.unique_id}"
+  common_name = "ctf-test"
 }
 
 variable "zone" {
