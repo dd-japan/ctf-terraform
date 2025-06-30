@@ -37,3 +37,9 @@ terraform/*.key
 terraform/*.bak
 terraform/*gitignore*.tf
 terraform/.vagrant/
+# Infrastructure base directory
+infra/base/*.tfstate
+infra/base/*.tfstate.backup
+infra/base/*.tfvars
+infra/base/.terraform/
+infra/base/.terraform.lock.hcl
