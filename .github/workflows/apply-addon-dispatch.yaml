@@ -1,14 +1,14 @@
 ###########################################################
-# terraform plan addon を手動でトリガーするためのワークフロー
+# terraform apply addon を手動でトリガーするためのワークフロー
 ###########################################################
-name: terraform plan dispatch addon
-run-name: terraform plan dispatch addon
+name: terraform apply dispatch for addon
+run-name: terraform apply dispatch for addon
 on:
   workflow_dispatch:
     inputs:
       project:
         type: choice
-        description: "Project to plan"
+        description: "Project to apply"
         required: true
         options:
           - "datadog-sandbox"
@@ -26,12 +26,14 @@ env:
   PROJECT_NUM: "958371799887"
 
 jobs:
-  terraform-plan:
+  terraform-apply:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
       pull-requests: write
+      actions: write
+      checks: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,9 +57,6 @@ jobs:
         with:
           aqua_version: v2.51.2
           aqua_opts: ""
-        env:
-          AQUA_DISABLE_COSIGN: "true"
-          AQUA_DISABLE_SLSA: "true"
 
       - name: Terraform fmt
         id: fmt
@@ -76,13 +75,13 @@ jobs:
         shell: bash
         run: terraform validate -no-color
 
-      - name: Terraform Plan
-        id: plan
+      - name: Terraform Apply
+        id: apply
         run: |
-          tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
+          tfcmt -var "target:${{ env.PROJECT_ID }}" apply -- terraform apply -no-color -input=false -auto-approve
         working-directory: "./terraform/addon"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
-          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }} 
-          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }}
+          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }} 

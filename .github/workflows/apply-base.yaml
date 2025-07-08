@@ -1,5 +1,5 @@
-name: terraform apply base
-run-name: terraform apply base
+name: terraform apply for base
+run-name: terraform apply for base
 
 on:
   workflow_call:

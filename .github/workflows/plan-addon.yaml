@@ -1,5 +1,5 @@
-name: terraform plan addon
-run-name: terraform plan addon
+name: terraform plan for addon
+run-name: terraform plan for addon
 on:
   pull_request:
     paths:

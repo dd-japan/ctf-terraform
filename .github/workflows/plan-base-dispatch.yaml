@@ -1,8 +1,8 @@
 ###########################################################
 # terraform plan を手動でトリガーするためのワークフロー
 ###########################################################
-name: terraform plan dispatch
-run-name: terraform plan dispatch
+name: terraform plan dispatch for base
+run-name: terraform plan dispatch for base
 on:
   workflow_dispatch:
     inputs:
