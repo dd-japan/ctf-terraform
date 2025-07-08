@@ -1,0 +1,55 @@
+###########################################################
+# terraform destroy を /terraform 直下ディレクトリに対して手動でトリガーするためのワークフロー
+###########################################################
+name: terraform destroy dispatch for base
+run-name: terraform destroy dispatch for base
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        type: choice
+        description: "Project to destroy for base resources"
+        required: true
+        options:
+          - "datadog-sandbox"
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+  actions: write
+  checks: read
+  issues: write
+
+env:
+  PROJECT_ID: "datadog-sandbox"
+  PROJECT_NUM: "958371799887"
+
+jobs:
+  terraform-destroy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: auth-google
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
+          service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
+
+      - name: Terraform Destroy
+        id: destroy
+        run: |
+          tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml destroy -- terraform destroy -no-color -input=false -auto-approve
+        working-directory: "./terraform"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }} 
+          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}

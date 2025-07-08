@@ -103,3 +103,4 @@ jobs:
           # Terraform 変数として GitHub Secrets から値を設定
           TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
           TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }}
+          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}
