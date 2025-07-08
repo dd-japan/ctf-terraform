@@ -35,5 +35,5 @@ data "google_service_account" "terraform_sa" {
 resource "google_service_account_iam_member" "workload_identity_account_iam" {
   service_account_id = data.google_service_account.terraform_sa.name
   role               = "roles/iam.workloadIdentityUser"
-  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_org}/${var.repo_name}"
+  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_org}/${var.repo_name}"
 }

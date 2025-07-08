@@ -1,25 +1,10 @@
-###########################################################
-# terraform plan を手動でトリガーするためのワークフロー
-###########################################################
-name: terraform plan dispatch
-run-name: terraform plan dispatch
+name: terraform plan addon
+run-name: terraform plan addon
 on:
-  workflow_dispatch:
-    inputs:
-      project:
-        type: choice
-        description: "Project to plan"
-        required: true
-        options:
-          - "datadog-sandbox"
-
-permissions:
-  contents: write
-  pull-requests: write
-  id-token: write
-  actions: write
-  checks: read
-  issues: write # PR に Label を付けるために必要
+  pull_request:
+    paths:
+      - "terraform/addon/**/*.tf"
+      - "!terraform/addon/**/README.md"
 
 env:
   PROJECT_ID: "datadog-sandbox"
@@ -29,9 +14,12 @@ jobs:
   terraform-plan:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
       contents: write
       pull-requests: write
+      id-token: write
+      actions: write
+      checks: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,7 +31,6 @@ jobs:
           workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
           service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
-      # Cache Aqua tools
       - name: Cache Tools
         id: cache-tools
         uses: actions/cache@v4
@@ -51,12 +38,11 @@ jobs:
           path: ~/.local/share/aquaproj-aqua
           key: cache-tools-${{ hashFiles('aqua.yaml') }}
 
-      # aqua.yamlから取得したパッケージをインストール
       - name: Setup Aqua
         uses: aquaproj/aqua-installer@v4.0.0
         with:
           aqua_version: v2.51.2
-          aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
+          aqua_opts: ""
         env:
           AQUA_DISABLE_COSIGN: "true"
           AQUA_DISABLE_SLSA: "true"
@@ -71,7 +57,7 @@ jobs:
         id: init
         shell: bash
         run: terraform init
-        working-directory: ./terraform
+        working-directory: ./terraform/addon
 
       - name: Terraform Validate
         id: validate
@@ -82,10 +68,9 @@ jobs:
         id: plan
         run: |
           tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml plan -patch -- terraform plan -no-color -input=false
-        working-directory: "./terraform"
+        working-directory: "./terraform/addon"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Terraform 変数として GitHub Secrets から値を設定
           TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
-          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }} 
           TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}
