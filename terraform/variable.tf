@@ -121,9 +121,10 @@ variable "zones" {
   type        = string
   default     = "asia-northeast1-a,asia-northeast1-b,asia-northeast1-c"
 }
-##################################################################################
+
+#------------------------------------------------------------------------------
 # Cloud SQL CTFD Japan MySQL に関するvariable
-##################################################################################
+#------------------------------------------------------------------------------
 variable "ctfd_instance_name" {
   type        = string
   description = "The name of the CTFD Japan Cloud SQL instance"
@@ -242,4 +243,11 @@ variable "ctfd_maintenance_update_track" {
   description = "The update track for maintenance for CTFD Japan"
   default     = "stable"
 }
-##################################################################################
+
+# CTFd Secret Key
+variable "ctfd_secret_key" {
+  type        = string
+  description = "Secret key for CTFd application"
+  sensitive   = true
+  default     = null
+}
