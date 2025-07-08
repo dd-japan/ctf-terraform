@@ -20,12 +20,12 @@ terraform {
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = ">= 2.36.0"
+      version = ">= 2.37.1"
     }
 
     helm = {
       source  = "hashicorp/helm"
-      version = ">= 2.17.0"
+      version = ">= 3.0.2"
     }
   }
   backend "gcs" {
@@ -46,7 +46,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     host                   = "https://${module.gke.endpoint}"
     cluster_ca_certificate = base64decode(module.gke.ca_certificate)
     token                  = data.google_client_config.default.access_token
