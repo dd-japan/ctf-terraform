@@ -1,0 +1,22 @@
+name: terraform apply for addon
+run-name: terraform apply for addon
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: read
+  issues: write
+
+jobs:
+  apply:
+    if: contains(github.event.comment.body, '/apply-addon')
+    uses: ./.github/workflows/apply-addon.yaml
+    with:
+      working_dir: ./terraform/addon
+      project_id: datadog-sandbox 

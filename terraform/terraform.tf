@@ -1,7 +1,7 @@
 # Since the versions of the module’s callers may differ, the version constraints should be loosened.
 # See: https://developer.hashicorp.com/terraform/language/providers/requirements#best-practices-for-provider-versions
 terraform {
-  required_version = ">= 1.5.7"
+
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -28,10 +28,13 @@ terraform {
       version = ">= 3.0.2"
     }
   }
+
   backend "gcs" {
     bucket = "ctf-terraform-tfstate"
-    prefix = "datadog-sandbox"
+    prefix = "base"
   }
+
+  required_version = "~> 1.10"
 }
 
 provider "google" {

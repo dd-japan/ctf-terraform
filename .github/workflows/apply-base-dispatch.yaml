@@ -1,44 +1,42 @@
-name: terraform apply base addon
-run-name: terraform apply base addon
-
+###########################################################
+# terraform apply を手動でトリガーするためのワークフロー
+###########################################################
+name: terraform apply dispatch for base
+run-name: terraform apply dispatch for base
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
-      working_dir:
-        type: string
+      project:
+        type: choice
+        description: "Project to apply"
         required: true
-        description: "Path to working directory to run terraform apply"
-      project_id:
-        type: string
-        required: true
-        description: "Target Google Cloud project ID to run terraform apply"
+        options:
+          - "datadog-sandbox"
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+  actions: write
+  checks: read
+  issues: write
 
 env:
   PROJECT_ID: "datadog-sandbox"
   PROJECT_NUM: "958371799887"
 
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}-${{ inputs.project_id }}
-
 jobs:
   terraform-apply:
-    runs-on:
-      - ubuntu-latest
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
       pull-requests: write
       actions: write
       checks: read
-    defaults:
-      run:
-        working-directory: ${{ inputs.working_dir }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          clean: false
-          ref: refs/pull/${{ github.event.issue.number }}/merge
 
       - name: auth-google
         uses: google-github-actions/auth@v2
@@ -47,6 +45,7 @@ jobs:
           workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
           service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
+      # Cache Aqua tools
       - name: Cache Tools
         id: cache-tools
         uses: actions/cache@v4
@@ -54,11 +53,12 @@ jobs:
           path: ~/.local/share/aquaproj-aqua
           key: cache-tools-${{ hashFiles('aqua.yaml') }}
 
+      # aqua.yamlから取得したパッケージをインストール
       - name: Setup Aqua
         uses: aquaproj/aqua-installer@v4.0.0
         with:
           aqua_version: v2.51.2
-          aqua_opts: ""
+          aqua_opts: "" # Lazy install（aqua i -l） がデフォルトで有効になっているため、aqua_optsに空文字を指定して'-l'オプションを取り除く
 
       - name: Terraform fmt
         id: fmt
@@ -70,6 +70,7 @@ jobs:
         id: init
         shell: bash
         run: terraform init
+        working-directory: ./terraform
 
       - name: Terraform Validate
         id: validate
@@ -80,11 +81,10 @@ jobs:
         id: apply
         run: |
           tfcmt -var "target:${{ env.PROJECT_ID }}" apply -- terraform apply -no-color -input=false -auto-approve
+        working-directory: "./terraform"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TFCMT_REPO_OWNER: ${{ github.event.organization.name }}
-          TFCMT_REPO_NAME: ${{ github.event.repository.name }}
-          TFCMT_PR_NUMBER: ${{ github.event.issue.number }}
+          # Terraform 変数として GitHub Secrets から値を設定
           TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
-          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }} 
-          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }}
+          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }} 
