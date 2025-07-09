@@ -85,7 +85,7 @@ resource "google_sql_user" "ctfduser" {
   # Password should be managed externally or via sensitive variables
   password = var.ctfd_user_password
 }
-/*
+
 # Enable SQL Admin API
 resource "google_project_service" "sqladmin" {
   project = var.project_id
@@ -97,4 +97,3 @@ resource "google_project_service" "compute" {
   project = var.project_id
   service = "compute.googleapis.com"
 }
-*/
