@@ -1,6 +1,10 @@
+resource "random_pet" "ctfd" {
+  length = 1
+}
+
 # Cloud SQL Instance: ctfd-japan (MySQL)
 resource "google_sql_database_instance" "ctfd_japan" {
-  name             = var.ctfd_instance_name
+  name             = "${var.ctfd_instance_name}-${random_pet.ctfd.id}"
   database_version = var.ctfd_database_version
   region           = var.region
   project          = var.project_id
@@ -68,7 +72,7 @@ resource "google_sql_database_instance" "ctfd_japan" {
 
 # Database for ctfd-japan instance
 resource "google_sql_database" "ctfd" {
-  name      = var.ctfd_database_name
+  name      = "${var.ctfd_database_name}-${random_pet.ctfd.id}"
   instance  = google_sql_database_instance.ctfd_japan.name
   charset   = var.ctfd_database_charset
   collation = var.ctfd_database_collation

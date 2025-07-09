@@ -1,11 +1,7 @@
+/*
 #------------------------------------------------------------------------------
 # Workload Identity Poolに関するvariable
 #------------------------------------------------------------------------------
-# Projectに関するvariable
-variable "project_id" {
-  type    = string
-  default = "datadog-sandbox"
-}
 
 # 環境に関するvariable
 variable "env" {
@@ -27,11 +23,6 @@ variable "repo_name" {
 variable "tfstate_bucket_name" {
   type    = string
   default = "ctf-terraform-tfstate"
-}
-
-variable "region" {
-  type    = string
-  default = "asia-northeast1"
 }
 
 variable "enabled_services" {
@@ -64,7 +55,7 @@ variable "enabled_services" {
     ],
   }
 }
-
+*/
 #------------------------------------------------------------------------------
 # Common
 #------------------------------------------------------------------------------
@@ -78,6 +69,17 @@ locals {
     please_keep_my_resource = true
   }
   common_name = "ctf-test"
+}
+
+# Projectに関するvariable
+variable "project_id" {
+  type    = string
+  default = "datadog-sandbox"
+}
+
+variable "region" {
+  type    = string
+  default = "asia-northeast1"
 }
 
 variable "zone" {
@@ -128,7 +130,7 @@ variable "zones" {
 variable "ctfd_instance_name" {
   type        = string
   description = "The name of the CTFD Japan Cloud SQL instance"
-  default     = "ctfd-japan2"
+  default     = "ctfd-japan"
 }
 
 variable "ctfd_database_version" {

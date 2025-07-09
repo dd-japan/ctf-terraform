@@ -1,3 +1,4 @@
+/*
 # Workload Identity
 resource "google_iam_workload_identity_pool" "github_pool" {
   project                   = var.project_id
@@ -37,3 +38,4 @@ resource "google_service_account_iam_member" "workload_identity_account_iam" {
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_org}/${var.repo_name}"
 }
+*/

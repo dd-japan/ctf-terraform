@@ -67,7 +67,7 @@ resource "google_project_service" "storage" {
 #------------------------------------------------------------------------------
 
 resource "google_cloud_run_service" "ctfd" {
-  name     = "ctfd-single-container"
+  name     = "ctfd-single-container-${random_pet.ctfd.id}"
   location = var.region
   project  = var.project_id
 
