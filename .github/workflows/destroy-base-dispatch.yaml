@@ -36,6 +36,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.12.0"
+
       - name: auth-google
         uses: google-github-actions/auth@v2
         with:
@@ -43,11 +48,19 @@ jobs:
           workload_identity_provider: "projects/${{ env.PROJECT_NUM }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
           service_account: "yuta-sa@datadog-sandbox.iam.gserviceaccount.com"
 
+      - name: Terraform Init
+        id: init
+        working-directory: "./terraform"
+        run: terraform init -no-color
+        env:
+          TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
+          TF_VAR_dd_api_key: ${{ secrets.DD_API_KEY }} 
+          TF_VAR_ctfd_secret_key: ${{ secrets.CTFD_SECRET_KEY }}
+
       - name: Terraform Destroy
         id: destroy
-        run: |
-          tfcmt -var "target:${{ env.PROJECT_ID }}" --config "$(git rev-parse --show-toplevel)"/.github/tfcmt.yaml destroy -- terraform destroy -no-color -input=false -auto-approve
         working-directory: "./terraform"
+        run: terraform destroy -no-color -input=false -auto-approve
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_allowed_ips: ${{ secrets.ALLOWED_IPS }}
