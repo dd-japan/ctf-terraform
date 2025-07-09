@@ -64,10 +64,6 @@ resource "google_sql_database_instance" "ctfd_japan" {
   lifecycle {
     prevent_destroy = true
   }
-
-  depends_on = [
-    google_project_service.sqladmin
-  ]
 }
 
 # Database for ctfd-japan instance
