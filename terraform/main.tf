@@ -4,6 +4,11 @@
 
 data "google_client_config" "default" {}
 
+data "google_service_account" "terraform_sa" {
+  # "yuta-sa" は Owner 権限を持つ Service Account であるため、Workload Identity による認証を許可する
+  account_id = "yuta-sa"
+}
+
 resource "random_pet" "primary" {
   length = 1
 }

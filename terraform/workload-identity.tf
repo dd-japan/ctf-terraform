@@ -27,11 +27,6 @@ resource "google_iam_workload_identity_pool_provider" "github_provider" {
   }
 }
 
-data "google_service_account" "terraform_sa" {
-  # "yuta-sa" は Owner 権限を持つ Service Account であるため、Workload Identity による認証を許可する
-  account_id = "yuta-sa"
-}
-
 # Workload Identityによる認証を許可するIAMバインディング設定
 resource "google_service_account_iam_member" "workload_identity_account_iam" {
   service_account_id = data.google_service_account.terraform_sa.name
