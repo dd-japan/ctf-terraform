@@ -5,7 +5,7 @@
 resource "google_storage_bucket" "ctfd_uploads" {
   name          = "${var.project_id}-ctfd-uploads"
   location      = var.region
-  force_destroy = true # テスト環境用。本番環境ではfalseにすること
+  force_destroy = true # For test environment. Set to false for production
 
   uniform_bucket_level_access = true
 
@@ -28,20 +28,20 @@ resource "google_storage_bucket" "ctfd_uploads" {
 #------------------------------------------------------------------------------
 
 resource "google_service_account" "ctfd_cloud_run" {
-  account_id   = "ctfd-cloud-run"
+  account_id   = "${local.common_name}-cloud-run"
   display_name = "CTFd Cloud Run Service Account"
   description  = "Service account for CTFd Cloud Run service"
   project      = var.project_id
 }
 
-# Cloud SQL Client権限
+# Cloud SQL Client permissions
 resource "google_project_iam_member" "ctfd_cloudsql_client" {
   project = var.project_id
   role    = "roles/cloudsql.client"
   member  = "serviceAccount:${google_service_account.ctfd_cloud_run.email}"
 }
 
-# GCS権限
+# GCS permissions
 resource "google_storage_bucket_iam_member" "ctfd_storage_access" {
   bucket = google_storage_bucket.ctfd_uploads.name
   role   = "roles/storage.objectAdmin"
@@ -49,25 +49,11 @@ resource "google_storage_bucket_iam_member" "ctfd_storage_access" {
 }
 
 #------------------------------------------------------------------------------
-# Enable Required APIs
-#------------------------------------------------------------------------------
-
-resource "google_project_service" "run" {
-  project = var.project_id
-  service = "run.googleapis.com"
-}
-
-resource "google_project_service" "storage" {
-  project = var.project_id
-  service = "storage.googleapis.com"
-}
-
-#------------------------------------------------------------------------------
 # Cloud Run Service for CTFd
 #------------------------------------------------------------------------------
 
 resource "google_cloud_run_service" "ctfd" {
-  name     = "ctfd-single-container-${random_pet.ctfd.id}"
+  name     = "${local.common_name}-ctfd-single-container"
   location = var.region
   project  = var.project_id
 
@@ -79,7 +65,7 @@ resource "google_cloud_run_service" "ctfd" {
         "run.googleapis.com/cpu-throttling"        = "false"
         "run.googleapis.com/startup-cpu-boost"     = "true"
         "run.googleapis.com/execution-environment" = "gen2"
-        "run.googleapis.com/cloudsql-instances"    = "${var.project_id}:${var.region}:${var.ctfd_instance_name}"
+        "run.googleapis.com/cloudsql-instances"    = "${var.project_id}:${var.region}:${google_sql_database_instance.ctfd_japan.name}"
       }
     }
 
@@ -96,7 +82,7 @@ resource "google_cloud_run_service" "ctfd" {
 
         env {
           name  = "DATABASE_URL"
-          value = "mysql+pymysql://${var.ctfd_database_user}:${var.ctfd_user_password != null ? var.ctfd_user_password : "changeme"}@/${var.ctfd_database_name}?unix_socket=/cloudsql/${var.project_id}:${var.region}:${var.ctfd_instance_name}"
+          value = "mysql+pymysql://${var.ctfd_database_user}:${var.ctfd_user_password != null ? var.ctfd_user_password : "changeme"}@/${var.ctfd_database_name}?unix_socket=/cloudsql/${var.project_id}:${var.region}:${google_sql_database_instance.ctfd_japan.name}"
         }
 
         env {
@@ -109,7 +95,7 @@ resource "google_cloud_run_service" "ctfd" {
           value = "true"
         }
 
-        # CTFdの設定環境変数
+        # CTFd configuration environment variables
         env {
           name  = "SECRET_KEY"
           value = var.ctfd_secret_key != null ? var.ctfd_secret_key : "changeme-secret-key"
@@ -136,7 +122,7 @@ resource "google_cloud_run_service" "ctfd" {
           }
         }
 
-        # ヘルスチェック設定
+        # Health check configuration
         startup_probe {
           http_get {
             path = "/healthcheck"
@@ -180,9 +166,7 @@ resource "google_cloud_run_service" "ctfd" {
 
   depends_on = [
     google_sql_database_instance.ctfd_japan,
-    google_storage_bucket.ctfd_uploads,
-    google_project_service.run,
-    google_project_service.storage
+    google_storage_bucket.ctfd_uploads
   ]
 }
 
@@ -194,5 +178,5 @@ resource "google_cloud_run_service_iam_member" "public_access" {
   location = google_cloud_run_service.ctfd.location
   service  = google_cloud_run_service.ctfd.name
   role     = "roles/run.invoker"
-  member   = "allUsers" # パブリックアクセスを許可。必要に応じて制限可能
+  member   = "allUsers" # Allow public access. Can be restricted as needed
 }

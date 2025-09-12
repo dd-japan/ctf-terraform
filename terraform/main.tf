@@ -5,7 +5,7 @@
 data "google_client_config" "default" {}
 
 data "google_service_account" "terraform_sa" {
-  # "yuta-sa" は Owner 権限を持つ Service Account であるため、Workload Identity による認証を許可する
+  # "yuta-sa" is a Service Account with Owner permissions, allowing Workload Identity authentication
   account_id = "yuta-sa"
 }
 
@@ -131,7 +131,7 @@ module "gke" {
   version = "~> 36.0.2"
 
   project_id        = var.project_id
-  name              = "${local.common_name}-gke-cluster"
+  name              = "${local.common_name}-cluster"
   region            = var.region
   network           = module.vpc.network_name
   subnetwork        = module.vpc.subnets_names[0]
@@ -139,7 +139,7 @@ module "gke" {
   ip_range_services = "svc-range"
   network_tags      = ["ctf"]
 
-  regional = true # リージョンベースのクラスタ
+  regional = true # Regional cluster
 
   grant_registry_access  = false
   create_service_account = false
@@ -151,7 +151,7 @@ module "gke" {
       node_locations     = var.zones
       min_count          = 1
       max_count          = 3
-      disk_size_gb       = 30
+      disk_size_gb       = 50
       disk_type          = "pd-standard"
       preemptible        = false
       initial_node_count = 1
@@ -166,10 +166,10 @@ module "gke" {
 
   deletion_protection = false
 
-  # サービスアカウントの設定
+  # Service account configuration
   service_account = data.google_service_account.terraform_sa.email
 
-  # クラスタのバージョンやその他の設定
+  # Cluster version and other settings
   release_channel = var.gke_release_channel
 }
 

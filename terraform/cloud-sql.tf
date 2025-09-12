@@ -4,7 +4,7 @@ resource "random_pet" "ctfd" {
 
 # Cloud SQL Instance: ctfd-japan (MySQL)
 resource "google_sql_database_instance" "ctfd_japan" {
-  name             = "${var.ctfd_instance_name}-${random_pet.ctfd.id}"
+  name             = "${local.common_name}-${random_pet.ctfd.id}"
   database_version = var.ctfd_database_version
   region           = var.region
   project          = var.project_id
@@ -62,13 +62,13 @@ resource "google_sql_database_instance" "ctfd_japan" {
   deletion_protection = true
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
 # Database for ctfd-japan instance
 resource "google_sql_database" "ctfd" {
-  name      = "${var.ctfd_database_name}-${random_pet.ctfd.id}"
+  name      = "${local.common_name}-${random_pet.ctfd.id}"
   instance  = google_sql_database_instance.ctfd_japan.name
   charset   = var.ctfd_database_charset
   collation = var.ctfd_database_collation
@@ -84,16 +84,4 @@ resource "google_sql_user" "ctfduser" {
 
   # Password should be managed externally or via sensitive variables
   password = var.ctfd_user_password
-}
-
-# Enable SQL Admin API
-resource "google_project_service" "sqladmin" {
-  project = var.project_id
-  service = "sqladmin.googleapis.com"
-}
-
-# Enable Compute Engine API (required for VPC)
-resource "google_project_service" "compute" {
-  project = var.project_id
-  service = "compute.googleapis.com"
 }

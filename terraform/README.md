@@ -1,5 +1,29 @@
 # Deploy Infra resources for CTF
 
+## Prerequisites
+
+Before running Terraform, you need to manually enable the following Google Cloud APIs:
+
+```bash
+# Enable required APIs
+gcloud services enable compute.googleapis.com
+gcloud services enable container.googleapis.com
+gcloud services enable sqladmin.googleapis.com
+gcloud services enable run.googleapis.com
+gcloud services enable storage.googleapis.com
+```
+
+## Required Environment Variables
+
+Set the following environment variables before running Terraform:
+
+```bash
+export TF_VAR_allowed_ips='["YOUR_IP_ADDRESS/32"]'
+export TF_VAR_dd_api_key="your-datadog-api-key"
+export TF_VAR_ctfd_user_password="your-secure-password"
+export TF_VAR_ctfd_secret_key="your-secure-secret-key"
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

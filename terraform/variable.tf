@@ -1,64 +1,7 @@
-/*
-#------------------------------------------------------------------------------
-# Workload Identity Poolに関するvariable
-#------------------------------------------------------------------------------
-
-# 環境に関するvariable
-variable "env" {
-  type    = string
-  default = "dev"
-}
-
-variable "github_org" {
-  type    = string
-  default = "dd-japan"
-}
-
-variable "repo_name" {
-  type    = string
-  default = "ctf-terraform"
-}
-
-# backendに関するvariable
-variable "tfstate_bucket_name" {
-  type    = string
-  default = "ctf-terraform-tfstate"
-}
-
-variable "enabled_services" {
-  type = map(list(object({
-    log_type         = string
-    exempted_members = optional(list(string))
-  })))
-
-  default = {
-    "storage.googleapis.com" = [
-      {
-        log_type = "DATA_READ"
-      },
-      {
-        log_type = "DATA_WRITE"
-      },
-      {
-        log_type = "ADMIN_READ"
-      }
-    ],
-    "sqladmin.googleapis.com" = [
-      {
-        log_type = "ADMIN_READ"
-      }
-    ],
-    "compute.googleapis.com" = [
-      {
-        log_type = "ADMIN_READ"
-      }
-    ],
-  }
-}
-*/
 #------------------------------------------------------------------------------
 # Common
 #------------------------------------------------------------------------------
+
 locals {
   common_tags = {
     terraform               = "true"
@@ -68,10 +11,11 @@ locals {
     location                = "tokyo"
     please_keep_my_resource = true
   }
-  common_name = "ctf-test"
+
+  common_name = "ctf-japan-master"
 }
 
-# Projectに関するvariable
+# Project variables
 variable "project_id" {
   type    = string
   default = "datadog-sandbox"
@@ -109,7 +53,7 @@ variable "dd_api_key" {
 variable "gke_release_channel" {
   description = "GKE cluster release channel."
   type        = string
-  default     = "REGULAR" # "RAPID", "REGULAR", "STABLE"から選択
+  default     = "REGULAR" # Choose from "RAPID", "REGULAR", "STABLE"
 }
 
 variable "gke_node_type" {
@@ -125,13 +69,8 @@ variable "zones" {
 }
 
 #------------------------------------------------------------------------------
-# Cloud SQL CTFD Japan MySQL に関するvariable
+# Cloud SQL CTFD Japan MySQL variables
 #------------------------------------------------------------------------------
-variable "ctfd_instance_name" {
-  type        = string
-  description = "The name of the CTFD Japan Cloud SQL instance"
-  default     = "ctfd-japan"
-}
 
 variable "ctfd_database_version" {
   type        = string
@@ -205,7 +144,7 @@ variable "ctfd_user_password" {
   type        = string
   description = "Password for the CTFD user"
   sensitive   = true
-  default     = null
+  default     = "changeme123456789!"
 }
 
 # Backup configuration for CTFD Japan
@@ -251,5 +190,5 @@ variable "ctfd_secret_key" {
   type        = string
   description = "Secret key for CTFd application"
   sensitive   = true
-  default     = null
+  default     = "changeme123456789!"
 }
