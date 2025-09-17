@@ -17,7 +17,7 @@ resource "google_sql_database_instance" "ctfd_japan" {
     disk_autoresize             = true
     disk_autoresize_limit       = 0
     edition                     = var.ctfd_edition
-    deletion_protection_enabled = true
+    deletion_protection_enabled = false
 
     backup_configuration {
       enabled    = true
@@ -64,6 +64,8 @@ resource "google_sql_database_instance" "ctfd_japan" {
   lifecycle {
     prevent_destroy = false
   }
+
+  depends_on = [kubernetes_manifest.swagstore]
 }
 
 # Database for ctfd-japan instance
@@ -73,6 +75,8 @@ resource "google_sql_database" "ctfd" {
   charset   = var.ctfd_database_charset
   collation = var.ctfd_database_collation
   project   = var.project_id
+
+  depends_on = [kubernetes_manifest.swagstore]
 }
 
 # User for ctfd-japan instance
@@ -84,4 +88,6 @@ resource "google_sql_user" "ctfduser" {
 
   # Password should be managed externally or via sensitive variables
   password = var.ctfd_user_password
+
+  depends_on = [kubernetes_manifest.swagstore]
 }

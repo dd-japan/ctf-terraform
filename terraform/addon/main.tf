@@ -4,14 +4,10 @@
 
 resource "kubernetes_manifest" "datadog_agent" {
   manifest = provider::kubernetes::manifest_decode(templatefile("${path.module}/datadog-agent.yaml", {
-    NAMESPACE_NAME = "default"
+    NAMESPACE_NAME = "datadog"
     CLUSTER_NAME   = data.terraform_remote_state.base.outputs.gke_cluster_name
     SECRETS_NAME   = data.terraform_remote_state.base.outputs.dd_apikey_secret_name
   }))
-
-  lifecycle {
-    ignore_changes = [manifest]
-  }
 }
 
 #------------------------------------------------------------------------------
@@ -36,7 +32,8 @@ locals {
             metadata = merge(
               lookup(manifest, "metadata", {}),
               {
-                namespace = lookup(lookup(manifest, "metadata", {}), "namespace", "default")
+                # Force swagstore applications to use default namespace
+                namespace = "default"
               }
             )
           }

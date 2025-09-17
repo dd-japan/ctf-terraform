@@ -4,6 +4,11 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 2.37.1"
     }
+
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 6.28.0"
+    }
   }
 
   backend "gcs" {

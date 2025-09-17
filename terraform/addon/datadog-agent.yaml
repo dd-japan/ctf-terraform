@@ -24,7 +24,6 @@ spec:
         enabled: true
         enabledNamespaces:
           - "default"
-          - "base"
         libVersions:
           java: "1"
           dotnet: "3"

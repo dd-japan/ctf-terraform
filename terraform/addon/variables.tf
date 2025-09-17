@@ -1,6 +1,7 @@
 #------------------------------------------------------------------------------
 # Common
 #------------------------------------------------------------------------------
+
 locals {
   common_tags = {
     terraform               = "true"
@@ -10,7 +11,8 @@ locals {
     location                = "tokyo"
     please_keep_my_resource = true
   }
-  common_name = "ctf-test"
+
+  common_name = "ctf-japan-master"
 
   # Swagstore
   manifest_files = [
