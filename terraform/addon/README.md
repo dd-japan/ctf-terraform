@@ -58,7 +58,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [google_cloud_run_service.ctfd](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_service) | resource |
-| [google_cloud_run_service_iam_member.public_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_service_iam_member) | resource |
 | [google_project_iam_member.ctfd_cloudsql_client](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_service_account.ctfd_cloud_run](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_sql_database.ctfd](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database) | resource |

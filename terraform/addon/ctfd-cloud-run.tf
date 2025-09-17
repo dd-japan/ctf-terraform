@@ -57,6 +57,12 @@ resource "google_cloud_run_service" "ctfd" {
   location = var.region
   project  = var.project_id
 
+  metadata {
+    labels = {
+      "external_access" = "allowed"
+    }
+  }
+
   template {
     metadata {
       annotations = {
@@ -66,6 +72,7 @@ resource "google_cloud_run_service" "ctfd" {
         "run.googleapis.com/startup-cpu-boost"     = "true"
         "run.googleapis.com/execution-environment" = "gen2"
         "run.googleapis.com/cloudsql-instances"    = "${var.project_id}:${var.region}:${google_sql_database_instance.ctfd_japan.name}"
+        "run.googleapis.com/ingress"               = "all"
       }
     }
 
@@ -168,15 +175,4 @@ resource "google_cloud_run_service" "ctfd" {
     google_sql_database_instance.ctfd_japan,
     google_storage_bucket.ctfd_uploads
   ]
-}
-
-#------------------------------------------------------------------------------
-# IAM for Cloud Run Public Access
-#------------------------------------------------------------------------------
-
-resource "google_cloud_run_service_iam_member" "public_access" {
-  location = google_cloud_run_service.ctfd.location
-  service  = google_cloud_run_service.ctfd.name
-  role     = "roles/run.invoker"
-  member   = "allUsers" # Allow public access. Can be restricted as needed
 }
