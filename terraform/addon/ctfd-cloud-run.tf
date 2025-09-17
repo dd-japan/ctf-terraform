@@ -72,7 +72,6 @@ resource "google_cloud_run_service" "ctfd" {
         "run.googleapis.com/startup-cpu-boost"     = "true"
         "run.googleapis.com/execution-environment" = "gen2"
         "run.googleapis.com/cloudsql-instances"    = "${var.project_id}:${var.region}:${google_sql_database_instance.ctfd_japan.name}"
-        "run.googleapis.com/ingress"               = "all"
       }
     }
 
