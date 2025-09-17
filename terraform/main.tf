@@ -177,10 +177,18 @@ module "gke" {
 # Datadog Operator
 #------------------------------------------------------------------------------
 
+resource "kubernetes_namespace" "datadog" {
+  metadata {
+    name = "datadog"
+  }
+
+  depends_on = [module.gke]
+}
+
 resource "kubernetes_secret" "datadog_api" {
   metadata {
     name      = "datadog-secret"
-    namespace = "default"
+    namespace = kubernetes_namespace.datadog.metadata[0].name
   }
 
   data = {
@@ -189,14 +197,14 @@ resource "kubernetes_secret" "datadog_api" {
 
   type = "Opaque"
 
-  depends_on = [module.gke]
+  depends_on = [kubernetes_namespace.datadog]
 }
 
 resource "helm_release" "datadog_operator" {
   name       = "datadog-operator"
   chart      = "datadog-operator"
   repository = "https://helm.datadoghq.com"
-  namespace  = "default"
+  namespace  = kubernetes_namespace.datadog.metadata[0].name
 
   depends_on = [
     kubernetes_secret.datadog_api
