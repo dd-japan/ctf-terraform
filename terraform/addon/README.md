@@ -69,6 +69,7 @@ No modules.
 | [kubernetes_manifest.datadog_agent](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/manifest) | resource |
 | [kubernetes_manifest.swagstore](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/manifest) | resource |
 | [random_pet.ctfd](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
+| [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
 | [http_http.yaml_files](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [terraform_remote_state.base](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
