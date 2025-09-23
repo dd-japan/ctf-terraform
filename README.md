@@ -7,8 +7,8 @@ This repository contains Terraform configurations for deploying a comprehensive 
 The infrastructure consists of three main components deployed in sequence:
 
 1. **Base Infrastructure** - Core GCP resources (VPC, GKE, Datadog)
-2. **CTFd Platform** - CTF competition platform on Cloud Run
-3. **Swagstore Application** - Sample microservices application for demonstrations
+2. **Swagstore Application** - Sample microservices application for demonstrations
+3. **CTFd Platform** - CTF competition platform on Cloud Run
 
 ## Directory Structure
 
@@ -45,24 +45,7 @@ terraform plan
 terraform apply
 ```
 
-### 2. CTFd Platform (`terraform/ctfd/`)
-
-Deploys the CTF competition platform:
-
-- **Cloud SQL**: MySQL database instance for CTFd
-- **Cloud Run**: CTFd application with external access
-- **GCS Bucket**: File storage for uploads
-- **IAM**: Service accounts and permissions
-
-**Deploy:**
-```bash
-cd terraform/ctfd
-terraform init
-terraform plan
-terraform apply
-```
-
-### 3. Swagstore Application (`terraform/swagstore/`)
+### 2. Swagstore Application (`terraform/swagstore/`)
 
 Deploys sample microservices for demonstrations:
 
@@ -75,6 +58,23 @@ Deploys sample microservices for demonstrations:
 **Deploy:**
 ```bash
 cd terraform/swagstore
+terraform init
+terraform plan
+terraform apply
+```
+
+### 3. CTFd Platform (`terraform/ctfd/`)
+
+Deploys the CTF competition platform:
+
+- **Cloud SQL**: MySQL database instance for CTFd
+- **Cloud Run**: CTFd application with external access
+- **GCS Bucket**: File storage for uploads
+- **IAM**: Service accounts and permissions
+
+**Deploy:**
+```bash
+cd terraform/ctfd
 terraform init
 terraform plan
 terraform apply
@@ -121,6 +121,6 @@ The infrastructure includes comprehensive Datadog monitoring:
 
 To destroy the infrastructure, run `terraform destroy` in reverse order:
 
-1. `terraform/swagstore/`
-2. `terraform/ctfd/`
+1. `terraform/ctfd/`
+2. `terraform/swagstore/`
 3. `terraform/base/`
