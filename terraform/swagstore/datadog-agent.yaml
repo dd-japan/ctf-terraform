@@ -5,6 +5,7 @@ metadata:
   namespace: ${NAMESPACE_NAME}
 spec:
   global:
+    site: "ap1.datadoghq.com"
     clusterName: ${CLUSTER_NAME}
     credentials:
       apiSecret:
@@ -24,7 +25,6 @@ spec:
         enabled: true
         enabledNamespaces:
           - "default"
-          - "base"
         libVersions:
           java: "1"
           dotnet: "3"

@@ -4,6 +4,11 @@
 
 data "google_client_config" "default" {}
 
+data "google_service_account" "terraform_sa" {
+  # "yuta-sa" is a Service Account with Owner permissions, allowing Workload Identity authentication
+  account_id = "yuta-sa"
+}
+
 resource "random_pet" "primary" {
   length = 1
 }
@@ -126,7 +131,7 @@ module "gke" {
   version = "~> 36.0.2"
 
   project_id        = var.project_id
-  name              = "${local.common_name}-gke-cluster"
+  name              = "${local.common_name}-cluster"
   region            = var.region
   network           = module.vpc.network_name
   subnetwork        = module.vpc.subnets_names[0]
@@ -134,7 +139,7 @@ module "gke" {
   ip_range_services = "svc-range"
   network_tags      = ["ctf"]
 
-  regional = true # リージョンベースのクラスタ
+  regional = true # Regional cluster
 
   grant_registry_access  = false
   create_service_account = false
@@ -146,7 +151,7 @@ module "gke" {
       node_locations     = var.zones
       min_count          = 1
       max_count          = 3
-      disk_size_gb       = 30
+      disk_size_gb       = 50
       disk_type          = "pd-standard"
       preemptible        = false
       initial_node_count = 1
@@ -161,10 +166,10 @@ module "gke" {
 
   deletion_protection = false
 
-  # サービスアカウントの設定
+  # Service account configuration
   service_account = data.google_service_account.terraform_sa.email
 
-  # クラスタのバージョンやその他の設定
+  # Cluster version and other settings
   release_channel = var.gke_release_channel
 }
 
@@ -172,10 +177,18 @@ module "gke" {
 # Datadog Operator
 #------------------------------------------------------------------------------
 
+resource "kubernetes_namespace" "datadog" {
+  metadata {
+    name = "datadog"
+  }
+
+  depends_on = [module.gke]
+}
+
 resource "kubernetes_secret" "datadog_api" {
   metadata {
     name      = "datadog-secret"
-    namespace = "default"
+    namespace = kubernetes_namespace.datadog.metadata[0].name
   }
 
   data = {
@@ -184,16 +197,55 @@ resource "kubernetes_secret" "datadog_api" {
 
   type = "Opaque"
 
-  depends_on = [module.gke]
+  depends_on = [kubernetes_namespace.datadog]
 }
 
 resource "helm_release" "datadog_operator" {
   name       = "datadog-operator"
   chart      = "datadog-operator"
   repository = "https://helm.datadoghq.com"
-  namespace  = "default"
+  namespace  = kubernetes_namespace.datadog.metadata[0].name
 
   depends_on = [
     kubernetes_secret.datadog_api
   ]
+}
+
+#------------------------------------------------------------------------------
+# GitHub Container Registry Authentication
+#------------------------------------------------------------------------------
+
+# GitHub Container Registry認証用のSecret
+resource "kubernetes_secret" "ghcr_secret" {
+  metadata {
+    name      = "ghcr-secret"
+    namespace = "default"
+  }
+
+  type = "kubernetes.io/dockerconfigjson"
+
+  data = {
+    ".dockerconfigjson" = jsonencode({
+      auths = {
+        "ghcr.io" = {
+          username = var.github_username
+          password = var.ghcr_access_token
+          auth     = base64encode("${var.github_username}:${var.ghcr_access_token}")
+        }
+      }
+    })
+  }
+
+  depends_on = [module.gke]
+}
+
+# default ServiceAccountにimagePullSecretsを追加
+resource "null_resource" "patch_default_serviceaccount" {
+  provisioner "local-exec" {
+    command = <<-EOT
+      kubectl patch serviceaccount default -n default -p '{"imagePullSecrets": [{"name": "${kubernetes_secret.ghcr_secret.metadata[0].name}"}]}'
+    EOT
+  }
+
+  depends_on = [kubernetes_secret.ghcr_secret]
 }

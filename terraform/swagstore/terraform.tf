@@ -4,11 +4,16 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 2.37.1"
     }
+
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 6.28.0"
+    }
   }
 
   backend "gcs" {
     bucket = "ctf-terraform-tfstate"
-    prefix = "addon"
+    prefix = "swagstore"
   }
 
   required_version = "~> 1.10"

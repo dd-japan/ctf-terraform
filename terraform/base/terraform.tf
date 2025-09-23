@@ -8,16 +8,6 @@ terraform {
       version = "~> 6.28.0"
     }
 
-    tls = {
-      source  = "hashicorp/tls"
-      version = ">= 4.0.6"
-    }
-
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.6.3"
-    }
-
     kubernetes = {
       source  = "hashicorp/kubernetes"
       version = ">= 2.37.1"
