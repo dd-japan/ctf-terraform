@@ -37,9 +37,50 @@ terraform/*.key
 terraform/*.bak
 terraform/*gitignore*.tf
 terraform/.vagrant/
-# Infrastructure base directory
-infra/base/*.tfstate
-infra/base/*.tfstate.backup
-infra/base/*.tfvars
-infra/base/.terraform/
-infra/base/.terraform.lock.hcl
+
+# Terraform directories - exclude sensitive files
+terraform/base/*.tfstate
+terraform/base/*.tfstate.backup
+terraform/base/*.tfvars
+terraform/base/.terraform/
+terraform/base/.terraform.lock.hcl
+terraform/base/crash.log
+terraform/base/crash.*.log
+
+terraform/ctfd/*.tfstate
+terraform/ctfd/*.tfstate.backup
+terraform/ctfd/*.tfvars
+terraform/ctfd/.terraform/
+terraform/ctfd/.terraform.lock.hcl
+terraform/ctfd/crash.log
+terraform/ctfd/crash.*.log
+
+terraform/swagstore/*.tfstate
+terraform/swagstore/*.tfstate.backup
+terraform/swagstore/*.tfvars
+terraform/swagstore/.terraform/
+terraform/swagstore/.terraform.lock.hcl
+terraform/swagstore/crash.log
+terraform/swagstore/crash.*.log
+
+# Sensitive credential files
+*.tfvars
+*.env
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+.env
+.env.local
+.env.production
+.env.staging
+
+# API Keys and Tokens
+*api_key*
+*token*
+*secret*
+*password*
+*credential*

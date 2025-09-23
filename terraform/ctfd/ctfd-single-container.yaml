@@ -1,0 +1,45 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ctfd-single-container
+  # annotations:
+  #  run.googleapis.com/launch-stage: BETA
+  #  run.googleapis.com/scalingMode: manual
+  #  run.googleapis.com/manualInstanceCount: 10
+spec:
+  template:
+    metadata:
+      # name: ctfd-single-container-revision-1
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "1"
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: 'true'
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/cloudsql-instances: ${PROJECT_ID}:${REGION}:${CTFD_INSTANCE_NAME}
+    spec:
+      containers:
+      - name: ctfd
+        image: ctfd/ctfd:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: mysql+pymysql://${DB_USER}:${DB_PASS}@/${DB_NAME}?unix_socket=/cloudsql/${PROJECT_ID}:${REGION}:${CTFD_INSTANCE_NAME}
+        - name: UPLOAD_FOLDER
+          value: /var/uploads
+        - name: REVERSE_PROXY
+          value: "true"
+        volumeMounts:
+        - mountPath: /var/uploads
+          name: uploads-volume
+      volumes:
+      - name: uploads-volume
+        csi:
+          driver: gcsfuse.run.googleapis.com
+          readOnly: False
+          volumeAttributes:
+           bucketName: ${GCS_BUCKET}
+  traffic:
+  - percent: 100
+    latestRevision: true

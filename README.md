@@ -1,223 +1,126 @@
-# 🔄 GitHub Actions Workflows
+# CTF Infrastructure Terraform
 
-このリポジトリでは以下の GitHub Actions ワークフローが実行されます。
+This repository contains Terraform configurations for deploying a comprehensive CTF (Capture The Flag) infrastructure on Google Cloud Platform (GCP) with Datadog monitoring.
 
-## 📋 ワークフロー一覧
+## Architecture Overview
 
-### 🛠️ Lint GitHub Actions workflows
-- **ファイル**: `.github/workflows/actionlint.yaml`
-- **トリガー**: `.github/workflows/*.yaml` が変更された PR
-- **実行内容**: 
-  - aquaproj/aqua-installer を使用して actionlint をインストール
-  - GitHub Actions のワークフローファイルの構文チェックを実行
+The infrastructure consists of three main components deployed in sequence:
 
-### 🔍 Trivy Security Scan
-- **ファイル**: `.github/workflows/trivy.yaml`
-- **トリガー**: `terraform/*.tf` が変更された PR
-- **実行内容**:
-  - aquasecurity/trivy-action を使用してセキュリティスキャンを実行
-  - 設定ファイルの脆弱性スキャン（HIGH, CRITICAL レベルのみ）
-  - スキャン結果を PR にスティッキーコメントとして投稿
-  - 脆弱性が検出されない場合は「脆弱性が検知されませんでした」と表示
+1. **Base Infrastructure** - Core GCP resources (VPC, GKE, Datadog)
+2. **CTFd Platform** - CTF competition platform on Cloud Run
+3. **Swagstore Application** - Sample microservices application for demonstrations
 
-### 📚 Terraform Documentation Generation
-- **ファイル**: `.github/workflows/terraform-docs.yaml`
-- **トリガー**: `terraform/**.tf` が変更された PR
-- **実行内容**:
-  - terraform-docs/gh-actions を使用してドキュメントを自動生成
-  - `./terraform/README.md` にドキュメントを注入
-  - 変更を自動的にコミット・プッシュ
+## Directory Structure
 
-### 🏗️ Terraform Plan (Base Resources)
-- **ファイル**: `.github/workflows/plan-base.yaml`
-- **トリガー**: `terraform/**/*.tf` が変更された PR（`terraform/**/README.md` を除く）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の plan 実行（`./terraform` ディレクトリ）
-  - tfcmt を使用して実行結果を PR にコメント
-  - 変更内容に応じて以下のラベルを自動付与:
-    - `add-or-update`: リソースの追加・更新時
-    - `destroy`: リソースの削除時
-    - `no-changes`: 変更なし
+```
+terraform/
+├── base/          # Core infrastructure (VPC, GKE, Datadog)
+├── ctfd/          # CTFd platform deployment
+└── swagstore/     # Sample microservices application
+```
 
-### 🏗️ Terraform Plan (Addon Resources)
-- **ファイル**: `.github/workflows/plan-addon.yaml`
-- **トリガー**: `terraform/addon/**/*.tf` が変更された PR（`terraform/addon/**/README.md` を除く）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の plan 実行（`./terraform/addon` ディレクトリ）
-  - tfcmt を使用して実行結果を PR にコメント
-  - 変更内容に応じてラベルを自動付与
+## Deployment Order
 
-### 🚀 Terraform Apply (Base Resources)
-- **ファイル**: `.github/workflows/apply-base.yaml`
-- **トリガー**: 他のワークフローから呼び出し（`workflow_call`）
-- **入力パラメータ**:
-  - `working_dir`: Terraform 実行ディレクトリ
-  - `project_id`: 対象の Google Cloud プロジェクト ID
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の apply 実行
-  - tfcmt を使用して実行結果を PR にコメント
-  - 同時実行制御（concurrency）により、同じ環境への重複実行を防止
+### 1. Base Infrastructure (`terraform/base/`)
 
-### 🚀 Terraform Apply (Addon Resources)
-- **ファイル**: `.github/workflows/apply-addon.yaml`
-- **トリガー**: 他のワークフローから呼び出し（`workflow_call`）
-- **入力パラメータ**:
-  - `working_dir`: Terraform 実行ディレクトリ
-  - `project_id`: 対象の Google Cloud プロジェクト ID
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の apply 実行
-  - tfcmt を使用して実行結果を PR にコメント
-  - 同時実行制御（concurrency）により、同じ環境への重複実行を防止
+Deploys the foundational infrastructure components:
 
-### 🔧 Manual Terraform Apply (Base Resources)
-- **ファイル**: `.github/workflows/apply1.yaml`
-- **トリガー**: PR に `/apply` コメントが投稿された時
-- **実行内容**:
-  - `apply-base.yaml` ワークフローを呼び出し
-  - `./terraform` ディレクトリで base リソースの apply を実行
+- **VPC Network**: Custom network with subnets and firewall rules
+- **GKE Cluster**: Regional Kubernetes cluster with node pools
+- **Datadog Monitoring**: 
+  - Datadog Operator in dedicated `datadog` namespace
+  - DatadogAgent Custom Resource for cluster monitoring
+  - GitHub Container Registry authentication for image pulls
 
-### 🔧 Manual Terraform Apply (Addon Resources)
-- **ファイル**: `.github/workflows/apply2.yaml`
-- **トリガー**: PR に `/apply-addon` コメントが投稿された時
-- **実行内容**:
-  - `apply-addon.yaml` ワークフローを呼び出し
-  - `./terraform/addon` ディレクトリで addon リソースの apply を実行
+**Prerequisites:**
+- Valid Datadog API key
+- GitHub Personal Access Token with `read:packages` scope
+- GCP project with required APIs enabled
 
-### 🎯 Manual Terraform Plan (Base Resources)
-- **ファイル**: `.github/workflows/plan-base-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の plan 実行（`./terraform` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+**Deploy:**
+```bash
+cd terraform/base
+terraform init
+terraform plan
+terraform apply
+```
 
-### 🎯 Manual Terraform Plan (Addon Resources)
-- **ファイル**: `.github/workflows/plan-addon-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の plan 実行（`./terraform/addon` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+### 2. CTFd Platform (`terraform/ctfd/`)
 
-### 🎯 Manual Terraform Apply (Base Resources)
-- **ファイル**: `.github/workflows/apply-base-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の apply 実行（`./terraform` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+Deploys the CTF competition platform:
 
-### 🎯 Manual Terraform Apply (Addon Resources)
-- **ファイル**: `.github/workflows/apply-addon-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - aquaproj/aqua-installer を使用して必要なツールをインストール
-  - Terraform の初期化とフォーマットチェック
-  - Terraform の構文チェック
-  - Terraform の apply 実行（`./terraform/addon` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+- **Cloud SQL**: MySQL database instance for CTFd
+- **Cloud Run**: CTFd application with external access
+- **GCS Bucket**: File storage for uploads
+- **IAM**: Service accounts and permissions
 
-### 🗑️ Manual Terraform Destroy (Base Resources)
-- **ファイル**: `.github/workflows/destroy-base-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - Terraform の destroy 実行（`./terraform` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+**Deploy:**
+```bash
+cd terraform/ctfd
+terraform init
+terraform plan
+terraform apply
+```
 
-### 🗑️ Manual Terraform Destroy (Addon Resources)
-- **ファイル**: `.github/workflows/destroy-addon-dispatch.yaml`
-- **トリガー**: 手動実行（`workflow_dispatch`）
-- **入力パラメータ**:
-  - `project`: 対象プロジェクト（datadog-sandbox）
-- **実行内容**:
-  - Google Cloud Platform への認証
-  - Terraform の destroy 実行（`./terraform/addon` ディレクトリ）
-  - tfcmt を使用して実行結果をコメント
+### 3. Swagstore Application (`terraform/swagstore/`)
 
-## 🚀 使用方法
+Deploys sample microservices for demonstrations:
 
-### 自動実行ワークフロー
-1. **Plan 実行**: PR を作成すると、Terraform ファイルの変更に応じて自動的に plan が実行されます
-2. **Apply 実行**: PR に以下のコメントを投稿することで apply を実行できます：
-   - `/apply`: base リソースの apply
-   - `/apply-addon`: addon リソースの apply
+- **DatadogAgent**: Enhanced monitoring configuration
+- **Microservices**: 12-sample microservices application
+  - Deployed in `default` namespace
+  - Includes: adservice, cartservice, checkoutservice, etc.
+  - Uses GitHub Container Registry images
 
-### 手動実行ワークフロー
-1. GitHub リポジトリの **Actions** タブに移動
-2. 実行したいワークフローを選択
-3. **Run workflow** ボタンをクリック
-4. 必要に応じてパラメータを設定
-5. **Run workflow** をクリックして実行
+**Deploy:**
+```bash
+cd terraform/swagstore
+terraform init
+terraform plan
+terraform apply
+```
 
-### 利用可能な手動実行ワークフロー
-- **Plan 実行**:
-  - `terraform plan dispatch for base`: base リソースの plan
-  - `terraform plan dispatch for addon`: addon リソースの plan
-- **Apply 実行**:
-  - `terraform apply dispatch for base`: base リソースの apply
-  - `terraform apply dispatch for addon`: addon リソースの apply
-- **Destroy 実行**:
-  - `terraform destroy dispatch for base`: base リソースの destroy
-  - `terraform destroy dispatch for addon`: addon リソースの destroy
+## Required Environment Variables
 
-## ⚠️ 注意事項
-- ワークフローの実行には適切な権限設定が必要です
-- Terraform の実行には Google Cloud Platform の認証情報が必要です
-- 重要な変更の場合は手動での確認も可能です（GitHub コンソール上から実行）
-- セキュリティスキャンで検出された脆弱性は優先的に対応することを推奨します
-- PR のラベルは自動的に付与されますが、手動で変更することも可能です
-- ラベルの付与は以下の条件で制御されます:
-  - `add-or-update`: Terraform の plan でリソースの追加または更新が検出された場合
-  - `destroy`: Terraform の plan でリソースの削除が検出された場合
-  - `no-changes`: Terraform の plan で変更が検出されなかった場合
-  - 既存のラベルは新しい plan 実行時に自動的に更新されます
-- 同時実行制御により、同じ環境への重複実行は防止されます
-- Terraform の state lock の仕組みは、Job が強制停止時にロックが解除できなくなる可能性があるため使用していません
+Before deploying, set the following environment variables:
 
-## 🔧 必要な環境変数・シークレット
-以下の GitHub Secrets が設定されている必要があります：
-- `ALLOWED_IPS`: 許可された IP アドレス
-- `DD_API_KEY`: Datadog API キー
-- `CTFD_SECRET_KEY`: CTFd シークレットキー
-- `GITHUB_TOKEN`: GitHub トークン（自動設定）
+```bash
+# Base infrastructure
+export TF_VAR_dd_api_key="your-datadog-api-key"
+export TF_VAR_allowed_ips='["YOUR_IP_ADDRESS/32"]'
+export TF_VAR_github_username="your-github-username"
+export TF_VAR_github_email="your-github-email"
+export TF_VAR_ghcr_access_token="your-github-token"
 
-## 📁 ディレクトリ構造
-- `./terraform/`: base リソース用の Terraform ファイル
-- `./terraform/addon/`: addon リソース用の Terraform ファイル
+# CTFd platform
+export TF_VAR_ctfd_user_password="your-secure-password"
+export TF_VAR_ctfd_secret_key="your-secure-secret-key"
+```
+
+## Security Considerations
+
+- All sensitive variables are marked as `sensitive = true`
+- Credential files (`*.tfvars`) are excluded from version control
+- GitHub Personal Access Tokens require minimal `read:packages` scope
+- Datadog API keys are stored in Kubernetes secrets
+
+## Development Status
+
+**Note**: Tag assignment functionality is currently **Work In Progress (WIP)**. This feature will be implemented in future updates to enhance resource organization and management.
+
+## Monitoring
+
+The infrastructure includes comprehensive Datadog monitoring:
+
+- **Infrastructure Monitoring**: GKE cluster and node metrics
+- **Application Monitoring**: APM for microservices
+- **Log Collection**: Centralized logging from all components
+- **Security Monitoring**: Runtime security and compliance
+
+## Cleanup
+
+To destroy the infrastructure, run `terraform destroy` in reverse order:
+
+1. `terraform/swagstore/`
+2. `terraform/ctfd/`
+3. `terraform/base/`
