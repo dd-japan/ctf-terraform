@@ -394,11 +394,10 @@ No modules.
 | [google_sql_user.ctfduser](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) | resource |
 | [google_storage_bucket.ctfd_uploads](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) | resource |
 | [google_storage_bucket_iam_member.ctfd_storage_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam_member) | resource |
-| [google_tags_tag_binding.ctfd_external_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/tags_tag_binding) | resource |
-| [google_tags_tag_key.external_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/tags_tag_key) | resource |
-| [google_tags_tag_value.allowed](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/tags_tag_value) | resource |
+| [google_tags_location_tag_binding.ctfd_tag_binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/tags_location_tag_binding) | resource |
 | [random_pet.ctfd](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
 | [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
+| [google_tags_tag_value.external_access_allowed](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/tags_tag_value) | data source |
 | [terraform_remote_state.base](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs
@@ -418,7 +417,7 @@ No modules.
 | <a name="input_ctfd_secret_key"></a> [ctfd\_secret\_key](#input\_ctfd\_secret\_key) | Secret key for CTFd application | `string` | `"changeme123456789!"` | no |
 | <a name="input_ctfd_user_password"></a> [ctfd\_user\_password](#input\_ctfd\_user\_password) | Password for the CTFD user | `string` | `"changeme123456789!"` | no |
 | <a name="input_ctfd_zone"></a> [ctfd\_zone](#input\_ctfd\_zone) | The GCP zone for the CTFD Japan Cloud SQL instance | `string` | `"asia-northeast1-b"` | no |
-| <a name="input_organization_id"></a> [organization\_id](#input\_organization\_id) | Organization ID for Google Cloud tags | `string` | `"1234567890"` | no |
+| <a name="input_parent_tag_key"></a> [parent\_tag\_key](#input\_parent\_tag\_key) | Organization ID for Google Cloud tags | `string` | `"1234567890"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | n/a | `string` | `"datadog-sandbox"` | no |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"asia-northeast1"` | no |
 | <a name="input_zone"></a> [zone](#input\_zone) | GCP zone | `string` | `"asia-northeast1-a"` | no |
@@ -433,6 +432,7 @@ No modules.
 | <a name="output_ctfd_japan_self_link"></a> [ctfd\_japan\_self\_link](#output\_ctfd\_japan\_self\_link) | The URI of the CTFD Japan Cloud SQL instance |
 | <a name="output_ctfd_japan_service_account_email"></a> [ctfd\_japan\_service\_account\_email](#output\_ctfd\_japan\_service\_account\_email) | The service account email address assigned to the CTFD Japan instance |
 | <a name="output_ctfd_service_account_email"></a> [ctfd\_service\_account\_email](#output\_ctfd\_service\_account\_email) | Email of the CTFd Cloud Run service account |
+| <a name="output_ctfd_service_id"></a> [ctfd\_service\_id](#output\_ctfd\_service\_id) | ID of the CTFd Cloud Run service |
 | <a name="output_ctfd_service_url"></a> [ctfd\_service\_url](#output\_ctfd\_service\_url) | URL of the CTFd Cloud Run service |
 | <a name="output_ctfd_uploads_bucket"></a> [ctfd\_uploads\_bucket](#output\_ctfd\_uploads\_bucket) | Name of the CTFd uploads GCS bucket |
 | <a name="output_ctfd_user_name"></a> [ctfd\_user\_name](#output\_ctfd\_user\_name) | The name of the CTFD user |

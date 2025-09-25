@@ -243,14 +243,14 @@ resource "google_cloud_run_service" "ctfd" {
     google_storage_bucket.ctfd_uploads
   ]
 }
-/*
+
 data "google_tags_tag_value" "external_access_allowed" {
   short_name = "allowed"
-  parent     = "tagKeys/xxxx"
+  parent     = "tagKeys/281480928926413"
 }
 
-resource "google_tags_tag_binding" "ctfd_tag_binding" {
+resource "google_tags_location_tag_binding" "ctfd_tag_binding" {
   parent    = "//run.googleapis.com/projects/${var.project_id}/locations/${var.region}/services/${google_cloud_run_service.ctfd.name}"
-  tag_value = "tagValues/xxxx"
+  tag_value = data.google_tags_tag_value.external_access_allowed.id
+  location  = var.region
 }
-*/
