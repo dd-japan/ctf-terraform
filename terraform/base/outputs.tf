@@ -49,16 +49,12 @@ output "gke_endpoint" {
 output "gke_ca_certificate" {
   description = "The base64 encoded CA certificate used to connect to this cluster's Kubernetes master."
   value       = module.gke.ca_certificate
+  sensitive   = true
 }
 
 output "dd_apikey_secret_name" {
   value       = kubernetes_secret.datadog_api.metadata[0].name
   description = "The name of the secret containing the Datadog API key."
-}
-
-output "allowed_ips" {
-  description = "Allowed IP addresses for firewall rules"
-  value       = var.allowed_ips
 }
 
 #------------------------------------------------------------------------------

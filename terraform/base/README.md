@@ -45,6 +45,7 @@ github_email = "your-github-email@example.com"
 ghcr_access_token = "github_pat_your_token_here"
 
 # Optional: Override default values
+common_name = "ctf-japan-master"  # Prefix for resource names
 project_id = "your-gcp-project-id"
 region = "asia-northeast1"
 gke_node_type = "e2-medium"
@@ -60,6 +61,7 @@ gke_release_channel = "REGULAR"
 | `github_username` | GitHub username for GHCR authentication | Yes | - |
 | `github_email` | GitHub email for GHCR authentication | Yes | - |
 | `ghcr_access_token` | GitHub Personal Access Token with `read:packages` scope | Yes | - |
+| `common_name` | Prefix for resource names (network, cluster, etc.) | No | `ctf-japan-master` |
 | `project_id` | GCP Project ID | No | `datadog-sandbox` |
 | `region` | GCP region | No | `asia-northeast1` |
 | `gke_node_type` | GKE node machine type | No | `e2-medium` |
@@ -137,23 +139,25 @@ This module provides the following outputs:
 
 ### VPC Network
 
-- **Network Name**: `ctf-japan-master-network`
+- **Network Name**: `${common_name}-network` (デフォルト: `ctf-japan-master-network`)
 - **Subnets**: 4 subnets across different zones
-  - `ctf-japan-master-subnet-a`: 10.10.1.0/24
-  - `ctf-japan-master-subnet-b`: 10.10.2.0/24
-  - `ctf-japan-master-subnet-c`: 10.10.3.0/24
-  - `ctf-japan-master-gke-subnet-a`: 10.10.0.0/24
+  - `${common_name}-subnet-a`: 10.10.1.0/24
+  - `${common_name}-subnet-b`: 10.10.2.0/24
+  - `${common_name}-subnet-c`: 10.10.3.0/24
+  - `${common_name}-gke-subnet-a`: 10.10.0.0/24 (GKE専用)
 - **Secondary Ranges**: Pod and service IP ranges for GKE
-- **Firewall Rules**: Allow traffic from specified IP addresses
+  - Pod range: 10.20.0.0/14
+  - Service range: 10.24.0.0/20
+- **Firewall Rules**: Allow traffic from specified IP addresses and internal VPC traffic
 
 ### GKE Cluster
 
-- **Name**: `ctf-japan-master-cluster`
+- **Name**: `${common_name}-cluster` (デフォルト: `ctf-japan-master-cluster`)
 - **Type**: Regional cluster (3 zones)
 - **Node Pool**: `default-node-pool`
-- **Machine Type**: `e2-medium` (configurable)
+- **Machine Type**: `e2-medium` (configurable via `gke_node_type`)
 - **Auto-scaling**: 1-3 nodes
-- **Release Channel**: `REGULAR`
+- **Release Channel**: `REGULAR` (configurable via `gke_release_channel`)
 
 ### Datadog Monitoring
 
@@ -286,6 +290,7 @@ Refer to the respective module README files for detailed instructions.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allowed_ips"></a> [allowed\_ips](#input\_allowed\_ips) | Allowed CIDR. This is the IP address of your office or home. | `list(string)` | n/a | yes |
+| <a name="input_common_name"></a> [common\_name](#input\_common\_name) | n/a | `string` | `"ctf-japan-master"` | no |
 | <a name="input_dd_api_key"></a> [dd\_api\_key](#input\_dd\_api\_key) | Datadog API Key | `string` | n/a | yes |
 | <a name="input_ghcr_access_token"></a> [ghcr\_access\_token](#input\_ghcr\_access\_token) | GitHub Personal Access Token for GHCR authentication | `string` | n/a | yes |
 | <a name="input_github_email"></a> [github\_email](#input\_github\_email) | GitHub email for GHCR authentication | `string` | n/a | yes |

@@ -18,33 +18,33 @@ module "vpc" {
   version = "10.0.0"
 
   project_id   = var.project_id
-  network_name = "${local.common_name}-network"
+  network_name = "${var.common_name}-network"
   routing_mode = "GLOBAL"
 
   subnets = [
     {
-      subnet_name           = "${local.common_name}-subnet-a"
+      subnet_name           = "${var.common_name}-subnet-a"
       subnet_ip             = "10.10.1.0/24"
       subnet_region         = var.region
       subnet_private_access = true
       subnet_flow_logs      = false
     },
     {
-      subnet_name           = "${local.common_name}-subnet-b"
+      subnet_name           = "${var.common_name}-subnet-b"
       subnet_ip             = "10.10.2.0/24"
       subnet_region         = var.region
       subnet_private_access = true
       subnet_flow_logs      = false
     },
     {
-      subnet_name           = "${local.common_name}-subnet-c"
+      subnet_name           = "${var.common_name}-subnet-c"
       subnet_ip             = "10.10.3.0/24"
       subnet_region         = var.region
       subnet_private_access = true
       subnet_flow_logs      = false
     },
     {
-      subnet_name           = "${local.common_name}-gke-subnet-a"
+      subnet_name           = "${var.common_name}-gke-subnet-a"
       subnet_ip             = "10.10.0.0/24"
       subnet_region         = var.region
       subnet_private_access = true
@@ -53,7 +53,7 @@ module "vpc" {
   ]
 
   secondary_ranges = {
-    "${local.common_name}-gke-subnet-a" = [
+    "${var.common_name}-gke-subnet-a" = [
       {
         range_name    = "pod-range"
         ip_cidr_range = "10.20.0.0/14"
@@ -67,7 +67,7 @@ module "vpc" {
 
   ingress_rules = [
     {
-      name          = "allow-custom-ingress-${local.common_name}"
+      name          = "${var.common_name}-allow-custom-ingress"
       description   = "Allow ingress from specific IP to certain ports"
       priority      = 1000
       source_ranges = var.allowed_ips
@@ -80,7 +80,7 @@ module "vpc" {
       target_tags = ["ctf"]
     },
     {
-      name          = "allow-custom-ingress-same-vpc-${local.common_name}"
+      name          = "${var.common_name}-allow-custom-ingress-same-vpc"
       description   = "Allow ingress from same VPC"
       priority      = 1000
       source_ranges = ["10.10.0.0/16"]
@@ -92,7 +92,7 @@ module "vpc" {
       target_tags = ["ctf"]
     },
     {
-      name          = "allow-nodeport-ingress-${local.common_name}"
+      name          = "${var.common_name}-allow-nodeport-ingress"
       description   = "Allow ingress to node ports"
       priority      = 1000
       source_ranges = var.allowed_ips
@@ -108,7 +108,7 @@ module "vpc" {
 
   egress_rules = [
     {
-      name               = "allow-all-egress-${local.common_name}"
+      name               = "${var.common_name}-allow-all-egress"
       description        = "Allow all outbound traffic for ctf-infra"
       priority           = 1000
       destination_ranges = ["0.0.0.0/0"]
@@ -131,7 +131,7 @@ module "gke" {
   version = "~> 36.0.2"
 
   project_id        = var.project_id
-  name              = "${local.common_name}-cluster"
+  name              = "${var.common_name}-cluster"
   region            = var.region
   network           = module.vpc.network_name
   subnetwork        = module.vpc.subnets_names[0]

@@ -5,14 +5,14 @@
 locals {
   common_tags = {
     terraform               = "true"
-    environment             = "test"
-    owner                   = "dd-japan"
     deperatment             = "salesengineering"
-    location                = "tokyo"
     please_keep_my_resource = true
   }
+}
 
-  common_name = "ctf-japan-master"
+variable "common_name" {
+  type    = string
+  default = "ctf-japan-master" # change to your name
 }
 
 # Project variables
