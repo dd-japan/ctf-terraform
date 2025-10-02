@@ -9,7 +9,7 @@ resource "random_pet" "ctfd" {
 #------------------------------------------------------------------------------
 
 resource "google_sql_database_instance" "ctfd" {
-  name             = "${local.common_name}-${random_pet.ctfd.id}"
+  name             = var.common_name
   database_version = var.ctfd_database_version
   region           = var.region
   project          = var.project_id
@@ -51,7 +51,7 @@ resource "google_sql_database_instance" "ctfd" {
 
 # Database for ctfd-japan instance
 resource "google_sql_database" "ctfd" {
-  name      = "${local.common_name}-${random_pet.ctfd.id}"
+  name      = var.common_name
   instance  = google_sql_database_instance.ctfd.name
   charset   = var.ctfd_database_charset
   collation = var.ctfd_database_collation
@@ -74,7 +74,7 @@ resource "google_sql_user" "ctfduser" {
 #------------------------------------------------------------------------------
 
 resource "google_storage_bucket" "ctfd_uploads" {
-  name          = "${local.common_name}-${random_pet.ctfd.id}"
+  name          = "${var.common_name}-${random_pet.ctfd.id}"
   location      = var.region
   force_destroy = true # For test environment. Set to false for production
   project       = var.project_id
@@ -100,7 +100,7 @@ resource "google_storage_bucket" "ctfd_uploads" {
 #------------------------------------------------------------------------------
 
 resource "google_service_account" "ctfd_cloud_run" {
-  account_id   = "${local.common_name}-cloud-run"
+  account_id   = "${var.common_name}-cloud-run"
   display_name = "CTFd Cloud Run Service Account"
   description  = "Service account for CTFd Cloud Run service"
   project      = var.project_id
@@ -125,7 +125,7 @@ resource "google_storage_bucket_iam_member" "ctfd_storage_access" {
 #------------------------------------------------------------------------------
 
 resource "google_cloud_run_service" "ctfd" {
-  name     = "${local.common_name}-${random_pet.ctfd.id}-ctfd-single-container"
+  name     = "${var.common_name}-ctfd"
   location = var.region
   project  = var.project_id
 
@@ -171,7 +171,6 @@ resource "google_cloud_run_service" "ctfd" {
           name  = "SECRET_KEY"
           value = var.ctfd_secret_key
         }
-
 
         startup_probe {
           http_get {
@@ -246,7 +245,7 @@ resource "google_cloud_run_service" "ctfd" {
 
 data "google_tags_tag_value" "external_access_allowed" {
   short_name = "allowed"
-  parent     = "tagKeys/281480928926413"
+  parent     = "tagKeys/${var.parent_tag_key}"
 }
 
 resource "google_tags_location_tag_binding" "ctfd_tag_binding" {

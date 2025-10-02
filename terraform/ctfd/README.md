@@ -118,7 +118,43 @@ terraform apply
 
 Type `yes` when prompted to confirm the deployment.
 
-### Step 6: Verify Deployment
+### Step 6: Configure Cloud Run Public Access (REQUIRED)
+
+**⚠️ CRITICAL: This manual step is required to make the CTFd application publicly accessible.**
+
+After successful deployment, you must manually configure the Cloud Run service to allow public access:
+
+1. **Open Google Cloud Console**
+   - Navigate to [Google Cloud Console](https://console.cloud.google.com/)
+   - Go to **Cloud Run** service
+
+2. **Select the CTFd Service**
+   - Find and click on the `${var.common_name}-ctfd` (or the service name shown in terraform output)
+
+3. **Configure Security Settings**
+   - Click on the **"Security"** tab
+   - In the **"Authentication"** section, check the box for **"Allow unauthenticated invocations"**
+   - Click **"Save"**
+
+4. **Verify Public Access**
+   - The service URL will be available in the **"URL"** field
+   - Test access by opening the URL in your browser
+
+**Alternative CLI Method:**
+```bash
+# Get the service name from terraform output
+terraform output ctfd_service_url
+
+# Allow unauthenticated access (replace SERVICE_NAME and REGION)
+gcloud run services add-iam-policy-binding SERVICE_NAME \
+    --region=REGION \
+    --member="allUsers" \
+    --role="roles/run.invoker"
+```
+
+**Note**: This step cannot be automated through Terraform due to Google Cloud security policies that require explicit manual confirmation for public access.
+
+### Step 7: Verify Deployment
 
 After deployment, verify the resources:
 
@@ -256,25 +292,31 @@ gsutil ls -la gs://ctfd-uploads-bucket/
 
 ### Common Issues
 
-1. **Cloud Run Service Not Starting**
+1. **CTFd Application Not Accessible (403 Forbidden)**
+   ```
+   Error: Your client does not have permission to get URL
+   ```
+   **Solution**: This usually indicates that Step 6 (Configure Cloud Run Public Access) was skipped. You must manually enable public access in the Google Cloud Console Security tab or use the gcloud CLI command provided in Step 6.
+
+2. **Cloud Run Service Not Starting**
    ```
    Error: Service failed to start
    ```
    **Solution**: Check Cloud Run logs and verify database connection string.
 
-2. **Database Connection Failed**
+3. **Database Connection Failed**
    ```
    Error: Can't connect to MySQL server
    ```
    **Solution**: Verify Cloud SQL instance is running and service account has proper permissions.
 
-3. **File Upload Issues**
+4. **File Upload Issues**
    ```
    Error: Permission denied for bucket
    ```
    **Solution**: Check service account IAM permissions for GCS bucket.
 
-4. **Memory Issues**
+5. **Memory Issues**
    ```
    Error: Container killed due to memory limit
    ```
@@ -351,12 +393,15 @@ terraform destroy
 
 After successfully deploying CTFd:
 
-1. **Access CTFd**: Open the Cloud Run URL in your browser
-2. **Initial Setup**: Complete the CTFd setup wizard
-3. **Configure Challenges**: Upload CTF challenges and files
-4. **Invite Participants**: Set up teams and user accounts
-5. **Monitor Performance**: Use Cloud Logging and Monitoring
-6. **Backup Strategy**: Configure additional backup policies if needed
+1. **⚠️ ENSURE Step 6 is completed**: Verify that public access has been enabled by accessing the Cloud Run URL. If you get a 403 error, complete Step 6.
+2. **Access CTFd**: Open the Cloud Run URL in your browser
+3. **Initial Setup**: Complete the CTFd setup wizard
+4. **Configure Challenges**: Upload CTF challenges and files
+5. **Invite Participants**: Set up teams and user accounts
+6. **Monitor Performance**: Use Cloud Logging and Monitoring
+7. **Backup Strategy**: Configure additional backup policies if needed
+
+**Important**: If you skip Step 6 (Configure Cloud Run Public Access), the CTFd application will not be accessible to users and will return 403 Forbidden errors.
 
 ## Support
 
@@ -404,6 +449,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_common_name"></a> [common\_name](#input\_common\_name) | n/a | `string` | `"ctf-japan-master"` | no |
 | <a name="input_ctfd_availability_type"></a> [ctfd\_availability\_type](#input\_ctfd\_availability\_type) | The availability type for the CTFD Japan Cloud SQL instance | `string` | `"REGIONAL"` | no |
 | <a name="input_ctfd_database_charset"></a> [ctfd\_database\_charset](#input\_ctfd\_database\_charset) | The charset for the CTFD database | `string` | `"utf8mb4"` | no |
 | <a name="input_ctfd_database_collation"></a> [ctfd\_database\_collation](#input\_ctfd\_database\_collation) | The collation for the CTFD database | `string` | `"utf8mb4_0900_ai_ci"` | no |
@@ -417,7 +463,7 @@ No modules.
 | <a name="input_ctfd_secret_key"></a> [ctfd\_secret\_key](#input\_ctfd\_secret\_key) | Secret key for CTFd application | `string` | `"changeme123456789!"` | no |
 | <a name="input_ctfd_user_password"></a> [ctfd\_user\_password](#input\_ctfd\_user\_password) | Password for the CTFD user | `string` | `"changeme123456789!"` | no |
 | <a name="input_ctfd_zone"></a> [ctfd\_zone](#input\_ctfd\_zone) | The GCP zone for the CTFD Japan Cloud SQL instance | `string` | `"asia-northeast1-b"` | no |
-| <a name="input_parent_tag_key"></a> [parent\_tag\_key](#input\_parent\_tag\_key) | Organization ID for Google Cloud tags | `string` | `"1234567890"` | no |
+| <a name="input_parent_tag_key"></a> [parent\_tag\_key](#input\_parent\_tag\_key) | Organization ID for Google Cloud tags | `string` | `"281480928926413"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | n/a | `string` | `"datadog-sandbox"` | no |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"asia-northeast1"` | no |
 | <a name="input_zone"></a> [zone](#input\_zone) | GCP zone | `string` | `"asia-northeast1-a"` | no |

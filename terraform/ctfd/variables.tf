@@ -5,14 +5,14 @@
 locals {
   common_tags = {
     terraform               = "true"
-    environment             = "test"
-    owner                   = "dd-japan"
     deperatment             = "salesengineering"
-    location                = "tokyo"
     please_keep_my_resource = true
   }
+}
 
-  common_name = "ctf-japan-master"
+variable "common_name" {
+  type    = string
+  default = "ctf-japan-master" # change to your name
 }
 
 variable "project_id" {
@@ -122,5 +122,5 @@ variable "ctfd_secret_key" {
 variable "parent_tag_key" {
   type        = string
   description = "Organization ID for Google Cloud tags"
-  default     = "1234567890"
+  default     = "281480928926413"
 }
