@@ -5,14 +5,9 @@
 locals {
   common_tags = {
     terraform               = "true"
-    environment             = "test"
-    owner                   = "dd-japan"
     deperatment             = "salesengineering"
-    location                = "tokyo"
     please_keep_my_resource = true
   }
-
-  common_name = "ctf-japan-master"
 
   # Swagstore
   swagstore_manifest_files = [
@@ -48,20 +43,4 @@ locals {
     for responseservice in local.responseservice_manifest_files :
     "https://raw.githubusercontent.com/dd-japan/ctf-swagstore/refs/heads/2025-1H/kubernetes-manifests/responseservice/${responseservice}"
   ]
-}
-
-variable "project_id" {
-  type    = string
-  default = "datadog-sandbox"
-}
-
-variable "region" {
-  type    = string
-  default = "asia-northeast1"
-}
-
-variable "zone" {
-  description = "GCP zone"
-  type        = string
-  default     = "asia-northeast1-a"
 }

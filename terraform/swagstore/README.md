@@ -14,49 +14,67 @@ This module deploys the Swagstore microservices application and enhanced Datadog
 
 1. Base Infrastructure deployed (`../base/`)
 2. GKE Cluster running with Datadog monitoring
-3. GitHub access to `dd-japan/ctf-swagstore` repository
+3. **⚠️ CRITICAL: ServiceAccount configuration completed** - You must have run the kubectl patch command from the base module's Step 5
+4. GitHub access to `dd-japan/ctf-swagstore` repository
+
+### Verify ServiceAccount Configuration
+
+Before deploying this module, verify that the default ServiceAccount has been properly configured for GitHub Container Registry access:
+
+```bash
+# Check if imagePullSecrets is configured
+kubectl get serviceaccount default -n default -o yaml | grep -A 5 imagePullSecrets
+
+# Expected output should show:
+# imagePullSecrets:
+# - name: ghcr-secret
+```
+
+If the above command shows no output or missing `imagePullSecrets`, you must complete the base module's Step 5 first:
+
+```bash
+cd ../base
+terraform output instruction
+# Run the kubectl patch command from the output
+```
 
 ## Required Variables
 
-Create `terraform.tfvars`:
-
-```hcl
-# Project Configuration (optional)
-project_id = "your-gcp-project-id"
-region = "asia-northeast1"
-zone = "asia-northeast1-a"
-
-# Sensitive Variables (required if overriding defaults)
-ctfd_user_password = "your-secure-password"
-ctfd_secret_key = "your-secure-secret-key"
-```
+This module has no variables. All configuration is handled through the base module's remote state and hardcoded values in the locals block.
 
 ## Deployment Steps
 
-### Step 1: Verify Base Infrastructure
+### Step 1: Verify Base Infrastructure and ServiceAccount Configuration
 ```bash
 cd ../base
 terraform output
 gcloud container clusters list
 kubectl get namespaces | grep datadog
+
+# ⚠️ CRITICAL: Verify ServiceAccount configuration
+kubectl get serviceaccount default -n default -o yaml | grep -A 5 imagePullSecrets
 ```
 
-### Step 2: Create terraform.tfvars (Optional)
+**Expected output should include:**
+```yaml
+imagePullSecrets:
+- name: ghcr-secret
+```
+
+**If imagePullSecrets is missing, run:**
 ```bash
-cat > terraform.tfvars << 'EOF'
-ctfd_user_password = "your-secure-password"
-ctfd_secret_key = "your-secure-secret-key"
-EOF
+terraform output instruction
+# Execute the kubectl patch command from the output
 ```
 
-### Step 3: Deploy
+### Step 2: Deploy
 ```bash
 terraform init
 terraform plan
 terraform apply
 ```
 
-### Step 4: Verify Deployment
+### Step 3: Verify Deployment
 ```bash
 kubectl -n datadog get pods
 kubectl -n default get pods
@@ -65,39 +83,69 @@ kubectl -n default get services
 
 ## Architecture Details
 
+This module fetches Kubernetes manifests directly from GitHub repositories and deploys them.
+
 ### Enhanced DatadogAgent
-- Site: `ap1.datadoghq.com` (Asia Pacific)
-- Namespace: `datadog`
-- Features: APM, Log Collection, Container Security, Network Performance Monitoring
+- **Site**: `ap1.datadoghq.com` (Asia Pacific)
+- **Namespace**: `datadog`
+- **Features**: APM, Log Collection, Container Security, Network Performance Monitoring
+- **Source**: `datadog-agent.yaml` (local template file)
 
 ### Swagstore Microservices
-12 microservices in `default` namespace:
-1. adservice - Advertisement service
-2. cartservice - Shopping cart service
-3. checkoutservice - Checkout process service
-4. currencyservice - Currency conversion service
-5. emailservice - Email notification service
-6. frontend - Web frontend service
-7. loadgenerator - Load testing service
-8. paymentservice - Payment processing service
-9. productcatalogservice - Product catalog service
-10. recommendationservice - Product recommendation service
-11. redis - Redis cache service
-12. shippingservice - Shipping calculation service
+**Source**: `https://github.com/dd-japan/ctf-swagstore` (2025-1H branch)
 
-### Responseservice Microservice
-Additional microservices and configurations in `default` namespace:
+12 microservices deployed to `default` namespace:
+
+1. **adservice** - Advertisement service
+2. **cartservice** - Shopping cart service
+3. **checkoutservice** - Checkout processing service
+4. **currencyservice** - Currency conversion service
+5. **emailservice** - Email notification service
+6. **frontend** - Web frontend service
+7. **loadgenerator** - Load testing service
+8. **paymentservice** - Payment processing service
+9. **productcatalogservice** - Product catalog service
+10. **recommendationservice** - Product recommendation service
+11. **redis** - Redis cache service
+12. **shippingservice** - Shipping calculation service
+
+### Responseservice Microservices
+**Source**: `https://github.com/dd-japan/ctf-swagstore/responseservice/` (2025-1H branch)
+
+Additional microservices and configurations deployed to `default` namespace:
+
 - **responseservice-v1** - Response handling service (version 1)
 - **responseservice-v2** - Response handling service (version 2)
 - **k6** - Load testing service for responseservice
 - **k6-configmap** - Configuration for k6 load testing
 - **configmap** - Configuration map for responseservice
 
+### Deployment Method
+- **HTTP Data Sources**: Uses Terraform HTTP data sources to fetch YAML files directly from GitHub
+- **Dynamic Manifest Processing**: Uses `provider::kubernetes::manifest_decode_multi` to process multi-document YAML
+- **Namespace Override**: Forces all resources to be deployed in the `default` namespace
+
 ## Troubleshooting
 
 ### Common Issues
+
 1. **DatadogAgent Not Ready**: Verify base infrastructure is deployed
-2. **Image Pull Errors**: Ensure GitHub Container Registry authentication is configured
+
+2. **Image Pull Errors (ImagePullBackOff/ErrImagePull)**
+   ```
+   Error: Failed to pull image "ghcr.io/dd-japan/ctf-swagstore/..."
+   ```
+   **Solution**: This is usually caused by missing ServiceAccount configuration. Verify that the base module's Step 5 was completed:
+   ```bash
+   kubectl get serviceaccount default -n default -o yaml | grep imagePullSecrets
+   ```
+   If missing, run the kubectl patch command from the base module.
+
+3. **GitHub Container Registry Authentication Failed**
+   ```
+   Error: 403 Forbidden when pulling from ghcr.io
+   ```
+   **Solution**: Ensure GitHub Container Registry authentication is configured and ServiceAccount is properly patched.
 
 ### Useful Commands
 ```bash
@@ -182,11 +230,7 @@ No modules.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | n/a | `string` | `"datadog-sandbox"` | no |
-| <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"asia-northeast1"` | no |
-| <a name="input_zone"></a> [zone](#input\_zone) | GCP zone | `string` | `"asia-northeast1-a"` | no |
+No inputs.
 
 ## Outputs
 
