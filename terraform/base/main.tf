@@ -238,14 +238,3 @@ resource "kubernetes_secret" "ghcr_secret" {
 
   depends_on = [module.gke]
 }
-
-# default ServiceAccountにimagePullSecretsを追加
-resource "null_resource" "patch_default_serviceaccount" {
-  provisioner "local-exec" {
-    command = <<-EOT
-      kubectl patch serviceaccount default -n default -p '{"imagePullSecrets": [{"name": "${kubernetes_secret.ghcr_secret.metadata[0].name}"}]}'
-    EOT
-  }
-
-  depends_on = [kubernetes_secret.ghcr_secret]
-}

@@ -67,5 +67,8 @@ gcloud auth login
 gcloud container clusters get-credentials ${module.gke.name} --region ${var.region} --project ${var.project_id}
 
 kubectl api-resources |grep datadog
+
+# Configure default ServiceAccount for GitHub Container Registry access
+kubectl patch serviceaccount default -n default -p '{"imagePullSecrets": [{"name": "${kubernetes_secret.ghcr_secret.metadata[0].name}"}]}'
   EOT
 }

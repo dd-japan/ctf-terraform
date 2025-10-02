@@ -106,7 +106,29 @@ terraform apply
 
 Type `yes` when prompted to confirm the deployment.
 
-### Step 5: Verify Deployment
+### Step 5: Configure ServiceAccount for GitHub Container Registry (REQUIRED)
+
+**⚠️ IMPORTANT: This step is required for pulling private container images from GitHub Container Registry.**
+
+After successful deployment, run the following commands to configure the default ServiceAccount:
+
+```bash
+# Get the post-deployment instructions
+terraform output instruction
+
+# Execute the output commands (example output):
+gcloud auth login
+gcloud container clusters get-credentials ctf-japan-master-cluster --region asia-northeast1 --project datadog-sandbox
+
+kubectl api-resources |grep datadog
+
+# Configure default ServiceAccount for GitHub Container Registry access
+kubectl patch serviceaccount default -n default -p '{"imagePullSecrets": [{"name": "ghcr-secret"}]}'
+```
+
+**Note**: The exact secret name will be shown in the terraform output. Make sure to use the exact command from `terraform output instruction`.
+
+### Step 6: Verify Deployment
 
 After deployment, verify the resources:
 
@@ -194,13 +216,19 @@ This module provides the following outputs:
    ```
    Error: 403 Forbidden when pulling from ghcr.io
    ```
-   **Solution**: Ensure your GitHub Personal Access Token has `read:packages` scope.
+   **Solution**: Ensure your GitHub Personal Access Token has `read:packages` scope and that you have completed Step 5 (ServiceAccount configuration).
 
 3. **GKE Cluster Creation Failed**
    ```
    Error: Insufficient permissions
    ```
    **Solution**: Verify the service account has Owner permissions.
+
+4. **Container Image Pull Failed**
+   ```
+   Error: ImagePullBackOff or ErrImagePull
+   ```
+   **Solution**: This usually indicates that Step 5 (ServiceAccount configuration) was skipped. Run the kubectl patch command from `terraform output instruction`.
 
 ### Useful Commands
 
@@ -240,8 +268,12 @@ terraform destroy
 
 After successfully deploying the base infrastructure:
 
-1. Deploy the CTFd platform: `../ctfd/`
-2. Deploy the Swagstore application: `../swagstore/`
+1. **⚠️ ENSURE Step 5 is completed**: Verify that the ServiceAccount configuration has been applied by running `kubectl get serviceaccount default -n default -o yaml` and checking for `imagePullSecrets`.
+
+2. Deploy the CTFd platform: `../ctfd/`
+3. Deploy the Swagstore application: `../swagstore/`
+
+**Important**: If you skip Step 5 (ServiceAccount configuration), subsequent deployments that use private container images from GitHub Container Registry will fail with ImagePullBackOff errors.
 
 Refer to the respective module README files for detailed instructions.
 
